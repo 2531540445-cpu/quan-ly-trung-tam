@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết khóa học - English Center</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* HEADER */
+        header {
+            background: #ffffff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* COURSE INTRO */
+        .course-banner {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+            padding: 60px 8%;
+        }
+
+        .course-banner h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .course-banner p {
+            font-size: 18px;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 84%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* LEFT */
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            color: #1e3a8a;
+        }
+
+        .section p {
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .lesson {
+            border-left: 4px solid #2563eb;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .lesson h3 {
+            margin-bottom: 8px;
+        }
+
+        /* TEACHER */
+        .teacher {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .teacher-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #dbeafe;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+        }
+
+        /* REGISTER FORM */
+        .register {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 20px;
+        }
+
+        .register h2 {
+            margin-bottom: 20px;
+            color: #1e3a8a;
+        }
+
+        .price {
+            font-size: 28px;
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .register input,
+        .register select {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 50px;
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .course-banner h1 {
+                font-size: 30px;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">English Center</div>
+
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="courses.html">Khóa học</a>
+    </nav>
+</header>
+
+
+<section class="course-banner">
+    <h1>English Communication A1</h1>
+
+    <p>
+        Khóa học dành cho người mới bắt đầu,
+        giúp xây dựng nền tảng tiếng Anh và
+        tự tin giao tiếp trong những tình huống cơ bản.
+    </p>
+</section>
+
+
+<div class="container">
+
+    <a href="courses.html" class="back">
+        ← Quay lại danh sách khóa học
+    </a>
+
+    <div class="content">
+
+        <!-- LEFT CONTENT -->
+        <div>
+
+            <div class="section">
+                <h2>🎯 Mục tiêu khóa học</h2>
+
+                <p>✓ Nắm được những kiến thức tiếng Anh cơ bản.</p>
+                <p>✓ Có thể giới thiệu bản thân bằng tiếng Anh.</p>
+                <p>✓ Giao tiếp trong những tình huống hàng ngày.</p>
+                <p>✓ Cải thiện phát âm và từ vựng.</p>
+                <p>✓ Xây dựng nền tảng để học lên trình độ A2.</p>
+            </div>
+
+
+            <div class="section">
+                <h2>📚 Nội dung khóa học</h2>
+
+                <div class="lesson">
+                    <h3>Buổi 1: Greetings & Introduction</h3>
+                    <p>Học cách chào hỏi và giới thiệu bản thân.</p>
+                </div>
+
+                <div class="lesson">
+                    <h3>Buổi 2: Family & Friends</h3>
+                    <p>Từ vựng về gia đình và cách mô tả người.</p>
+                </div>
+
+                <div class="lesson">
+                    <h3>Buổi 3: Daily Activities</h3>
+                    <p>Thực hành nói về các hoạt động hàng ngày.</p>
+                </div>
+
+                <div class="lesson">
+                    <h3>Buổi 4: Food & Drinks</h3>
+                    <p>Học từ vựng và giao tiếp khi gọi món.</p>
+                </div>
+
+                <div class="lesson">
+                    <h3>Buổi 5: Review & Speaking</h3>
+                    <p>Ôn tập và thực hành giao tiếp.</p>
+                </div>
+            </div>
+
+
+            <div class="section">
+                <h2>👨‍🏫 Giảng viên</h2>
+
+                <div class="teacher">
+                    <div class="teacher-img">👨‍🏫</div>
+
+                    <div>
+                        <h3>Nguyễn Minh Anh</h3>
+                        <p>Giảng viên tiếng Anh</p>
+                        <p>5+ năm kinh nghiệm giảng dạy.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT REGISTER -->
+        <div>
+
+            <div class="register">
+
+                <h2>Đăng ký khóa học</h2>
+
+                <div class="price">
+                    1.500.000 VNĐ
+                </div>
+
+                <p>Thời lượng: 5 tuần</p>
+                <p>Trình độ: A1</p>
+                <br>
+
+                <form>
+
+                    <input
+                        type="text"
+                        placeholder="Họ và tên"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        required
+                    >
+
+                    <input
+                        type="tel"
+                        placeholder="Số điện thoại"
+                        required
+                    >
+
+                    <select>
+                        <option>Đăng ký học thử</option>
+                        <option>Đăng ký khóa học</option>
+                    </select>
+
+                    <button class="btn">
+                        Đăng ký ngay
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+    <p>© 2026 English Center - Language Learning System</p>
+</footer>
+
+</body>
+</html>
