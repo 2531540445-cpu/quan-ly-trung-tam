@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Danh sách khóa học - English Center</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* BANNER */
+        .banner {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .banner h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .banner p {
+            font-size: 17px;
+        }
+
+        /* MAIN */
+        .container {
+            width: 84%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        /* SEARCH */
+        .search-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            margin-bottom: 35px;
+        }
+
+        .search-box h2 {
+            margin-bottom: 20px;
+            color: #1e3a8a;
+        }
+
+        .search-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        /* COURSE LIST */
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .course-header h2 {
+            color: #1e3a8a;
+        }
+
+        #courseCount {
+            color: #64748b;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* CARD */
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .course-image {
+            height: 180px;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .course-content {
+            padding: 22px;
+        }
+
+        .course-tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .course-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .course-content p {
+            color: #64748b;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            color: #475569;
+            font-size: 14px;
+        }
+
+        .price {
+            color: #2563eb;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .detail-btn {
+            display: block;
+            text-align: center;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .detail-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* NO RESULT */
+        .no-result {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            color: #64748b;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .course-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .search-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+    <div class="logo">
+        English Center
+    </div>
+
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="courses.html">Khóa học</a>
+    </nav>
+
+</header>
+
+
+<!-- BANNER -->
+<section class="banner">
+
+    <h1>📚 Khóa học của chúng tôi</h1>
+
+    <p>
+        Tìm khóa học phù hợp với trình độ và mục tiêu của bạn
+    </p>
+
+</section>
+
+
+<main class="container">
+
+    <!-- SEARCH + FILTER -->
+    <div class="search-box">
+
+        <h2>🔎 Tìm kiếm khóa học</h2>
+
+        <div class="search-row">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Nhập tên khóa học..."
+            >
+
+            <select id="languageFilter">
+
+                <option value="all">
+                    Tất cả ngôn ngữ
+                </option>
+
+                <option value="english">
+                    Tiếng Anh
+                </option>
+
+                <option value="korean">
+                    Tiếng Hàn
+                </option>
+
+                <option value="japanese">
+                    Tiếng Nhật
+                </option>
+
+            </select>
+
+
+            <select id="levelFilter">
+
+                <option value="all">
+                    Tất cả trình độ
+                </option>
+
+                <option value="a1">
+                    A1 - Beginner
+                </option>
+
+                <option value="a2">
+                    A2 - Elementary
+                </option>
+
+                <option value="b1">
+                    B1 - Intermediate
+                </option>
+
+                <option value="b2">
+                    B2 - Upper Intermediate
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- COURSE HEADER -->
+    <div class="course-header">
+
+        <h2>Danh sách khóa học</h2>
+
+        <span id="courseCount">
+            6 khóa học
+        </span>
+
+    </div>
+
+
+    <!-- COURSE GRID -->
+    <div class="course-grid" id="courseGrid">
+
+
+        <!-- COURSE 1 -->
+        <div
+            class="course-card"
+            data-name="english communication a1"
+            data-language="english"
+            data-level="a1"
+        >
+
+            <div class="course-image">
+                🇬🇧
+            </div>
+
+            <div class="course-content">
+
+                <span class="course-tag">
+                    Tiếng Anh
+                </span>
+
+                <h3>
+                    English Communication A1
+                </h3>
+
+                <p>
+                    Khóa học dành cho người mới bắt đầu
+                    làm quen với tiếng Anh.
+                </p>
+
+                <div class="course-info">
+
+                    <span>⏱ 5 tuần</span>
+
+                    <span>A1</span>
+
+                </div>
+
+                <div class="price">
+                    1.500.000 VNĐ
+                </div>
+
+                <br>
+
+                <a
+                    href="course-detail.html"
+                    class="detail-btn"
+                >
+                    Xem chi tiết
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 2 -->
+        <div
+            class="course-card"
+            data-name="english communication a2"
+            data-language="english"
+            data-level="a2"
+        >
+
+            <div class="course-image">
+                🇬🇧
+            </div>
+
+            <div class="course-content">
+
+                <span class="course-tag">
+                    Tiếng Anh
+                </span>
+
+                <h3>
+                    English Communication A2
+                </h3>
+
+                <p>
+                    Phát triển khả năng giao tiếp
+                    trong những tình huống hàng ngày.
+                </p>
+
+                <div class="course-info">
+
+                    <span>⏱ 6 tuần</span>
+
+                    <span>A2</span>
+
+                </div>
+
+                <div class="price">
+                    1.800.000 VNĐ
+                </div>
+
+                <br>
+
+                <a
+                    href="course-detail.html"
+                    class="detail-btn"
+                >
+                    Xem chi tiết
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 3 -->
+        <div
+            class="course-card"
+            data-name="english intermediate b1"
+            data-language="english"
+            data-level="b1"
+        >
+
+            <div class="course-image">
+                🇬🇧
+            </div>
+
+            <div class="course-content">
+
+                <span class="course-tag">
+                    Tiếng Anh
+                </span>
+
+                <h3>
+                    English Intermediate B1
+                </h3>
+
+                <p>
+                    Cải thiện giao tiếp và khả năng
+                    sử dụng tiếng Anh trong học tập.
+                </p>
+
+                <div class="course-info">
+
+                    <span>⏱ 8 tuần</span>
+
+                    <span>B1</span>
+
+                </div>
+
+                <div class="price">
+                    2.500.000 VNĐ
+                </div>
+
+                <br>
+
+                <a
+                    href="course-detail.html"
+                    class="detail-btn"
+                >
+                    Xem chi tiết
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 4 -->
+        <div
+            class="course-card"
+            data-name="korean beginner"
+            data-language="korean"
+            data-level="a1"
+        >
+
+            <div class="course-image">
+                🇰🇷
+            </div>
+
+            <div class="course-content">
+
+                <span class="course-tag">
+                    Tiếng Hàn
+                </span>
+
+                <h3>
+                    Korean Beginner
+                </h3>
+
+                <p>
+                    Làm quen với bảng chữ cái
+                    và giao tiếp tiếng Hàn cơ bản.
+                </p>
+
+                <div class="course-info">
+
+                    <span>⏱ 6 tuần</span>
+
+                    <span>A1</span>
+
+                </div>
+
+                <div class="price">
+                    1.700.000 VNĐ
+                </div>
+
+                <br>
+
+                <a
+                    href="course-detail.html"
+                    class="detail-btn"
+                >
+                    Xem chi tiết
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 5 -->
+        <div
+            class="course-card"
+            data-name="japanese beginner"
+            data-language="japanese"
+            data-level="a1"
+        >
+
+            <div class="course-image">
+                🇯🇵
+            </div>
+
+            <div class="course-content">
+
+                <span class="course-tag">
+                    Tiếng Nhật
+                </span>
+
+                <h3>
+                    Japanese Beginner
+                </h3>
+
+                <p>
+                    Học Hiragana, Katakana và
+                    giao tiếp tiếng Nhật cơ bản.
+                </p>
+
+                <div class="course-info">
+
+                    <span>⏱ 6 tuần</span>
+
+                    <span>A1</span>
+
+                </div>
+
+                <div class="price">
+                    1.700.000 VNĐ
+                </div>
+
+                <br>
+
+                <a
+                    href="course-detail.html"
+                    class="detail-btn"
+                >
+                    Xem chi tiết
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 6 -->
+        <div
+            class="course-card"
+            data-name="english upper intermediate b2"
+            data-language="english"
+            data-level="b2"
+        >
+
+            <div class="course-image">
+                🇬🇧
+            </div>
+
+            <div class="course-content">
+
+                <span class="course-tag">
+                    Tiếng Anh
+                </span>
+
+                <h3>
+                    English Upper Intermediate B2
+                </h3>
+
+                <p>
+                    Nâng cao khả năng sử dụng tiếng Anh
+                    trong học tập và công việc.
+                </p>
+
+                <div class="course-info">
+
+                    <span>⏱ 10 tuần</span>
+
+                    <span>B2</span>
+
+                </div>
+
+                <div class="price">
+                    3.000.000 VNĐ
+                </div>
+
+                <br>
+
+                <a
+                    href="course-detail.html"
+                    class="detail-btn"
+                >
+                    Xem chi tiết
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="no-result" id="noResult">
+
+        <h2>😢 Không tìm thấy khóa học</h2>
+
+        <p>
+            Hãy thử thay đổi từ khóa hoặc bộ lọc.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 English Center - Language Learning System
+    </p>
+
+</footer>
+
+
+<script>
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+    const languageFilter =
+        document.getElementById("languageFilter");
+
+    const levelFilter =
+        document.getElementById("levelFilter");
+
+    const cards =
+        document.querySelectorAll(".course-card");
+
+    const courseCount =
+        document.getElementById("courseCount");
+
+    const noResult =
+        document.getElementById("noResult");
+
+
+    function filterCourses() {
+
+        const search =
+            searchInput.value.toLowerCase();
+
+        const language =
+            languageFilter.value;
+
+        const level =
+            levelFilter.value;
+
+        let count = 0;
+
+
+        cards.forEach(card => {
+
+            const name =
+                card.dataset.name;
+
+            const cardLanguage =
+                card.dataset.language;
+
+            const cardLevel =
+                card.dataset.level;
+
+
+            const matchSearch =
+                name.includes(search);
+
+            const matchLanguage =
+                language === "all" ||
+                cardLanguage === language;
+
+            const matchLevel =
+                level === "all" ||
+                cardLevel === level;
+
+
+            if (
+                matchSearch &&
+                matchLanguage &&
+                matchLevel
+            ) {
+
+                card.style.display = "block";
+
+                count++;
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+
+        courseCount.innerText =
+            count + " khóa học";
+
+
+        if (count === 0) {
+
+            noResult.style.display = "block";
+
+        } else {
+
+            noResult.style.display = "none";
+
+        }
+
+    }
+
+
+    searchInput.addEventListener(
+        "input",
+        filterCourses
+    );
+
+    languageFilter.addEventListener(
+        "change",
+        filterCourses
+    );
+
+    levelFilter.addEventListener(
+        "change",
+        filterCourses
+    );
+
+</script>
+
+</body>
+</html>
