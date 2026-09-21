@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Global English — Quản lý Khóa học & Tài khoản Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Nhúng file CSS ngoài -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scrim" id="scrim"></div>
+
+<div class="layout">
+
+<!-- ═══════════════ SIDEBAR ═══════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <b>Global English</b>
+    <span>Hệ thống Quản trị</span>
+  </div>
+
+  <nav class="nav" aria-label="Điều hướng">
+    <button class="nav-item" data-page="dashboard"><span class="nav-ico">◆</span> Tổng quan</button>
+
+    <!-- NHÓM QUẢN LÝ KHÓA HỌC -->
+    <div class="nav-group open" id="grp-course">
+      <button class="nav-toggle" aria-expanded="true"><span class="nav-ico">▤</span> Quản lý khóa học <span class="caret">▸</span></button>
+      <ul class="nav-sub">
+        <li><a href="#courses" data-page="courses" class="active">Danh sách khóa học</a></li>
+        <li><a href="#classes" data-page="classes">Quản lý lớp học</a></li>
+        <li><a href="#schedule" data-page="schedule">Quản lý lịch học</a></li>
+        <li><a href="#teachers" data-page="teachers">Quản lý giáo viên</a></li>
+      </ul>
+    </div>
+
+    <!-- NHÓM TÀI KHOẢN ADMIN -->
+    <div class="nav-group open" id="grp-account">
+      <button class="nav-toggle" aria-expanded="true"><span class="nav-ico">◐</span> Tài khoản admin <span class="caret">▸</span></button>
+      <ul class="nav-sub">
+        <li><a href="#profile" data-page="profile">Thông tin cá nhân</a></li>
+        <li><a href="#password" data-page="password">Đổi mật khẩu</a></li>
+        <li><a href="#accounts" data-page="accounts">Danh sách tài khoản</a></li>
+        <li><a href="#" data-modal="m-logout">Đăng xuất</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="sidebar-foot">Giao diện quản trị v1.0</div>
+</aside>
+
+<!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+<div class="content">
+
+  <header class="topbar">
+    <button class="burger" id="burger" aria-label="Mở menu">☰</button>
+    <div>
+      <p class="crumb" id="crumb"><b>Trang chủ / Quản lý khóa học</b></p>
+      <h1 id="page-title">Danh sách khóa học</h1>
+    </div>
+    <div class="topbar-right">
+      <div class="who">
+        <b>Nguyễn Văn A</b>
+        <span>Quản trị viên</span>
+      </div>
+      <div class="avatar">NA</div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- ─────────── 0. TỔNG QUAN (DASHBOARD) ─────────── -->
+    <section class="page" id="dashboard" data-title="Tổng quan" data-crumb="Trang chủ">
+      <div class="stats">
+        <div class="stat"><span>Khóa học đang mở</span><strong>6</strong><em>2 khóa tuyển sinh</em></div>
+        <div class="stat g"><span>Lớp đang hoạt động</span><strong>4</strong><em>3 phòng đang dùng</em></div>
+        <div class="stat b"><span>Giáo viên</span><strong>4</strong><em>1 giáo viên bản ngữ</em></div>
+        <div class="stat a"><span>Tài khoản hệ thống</span><strong>3</strong><em>1 tài khoản Admin</em></div>
+      </div>
+      <section class="card">
+        <div class="card-head"><h2>Thao tác nhanh</h2></div>
+        <div class="card-body toolbar">
+          <button class="btn btn-primary" data-page="courses">Quản lý Khóa học</button>
+          <button class="btn" data-page="classes">Danh sách Lớp học</button>
+          <button class="btn" data-page="teachers">Danh sách Giáo viên</button>
+          <button class="btn" data-page="profile">Trang cá nhân Admin</button>
+        </div>
+      </section>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         MODULE 1: QUẢN LÝ KHÓA HỌC
+         ════════════════════════════════════════════════════════ -->
+
+    <!-- 1.1 DANH SÁCH KHÓA HỌC -->
+    <section class="page show" id="courses" data-title="Danh sách khóa học" data-crumb="Trang chủ / Quản lý khóa học">
+      <div class="stats">
+        <div class="stat"><span>Tổng số khóa học</span><strong>6</strong></div>
+        <div class="stat g"><span>Đang tuyển sinh</span><strong>2</strong></div>
+        <div class="stat b"><span>Đang khai giảng</span><strong>3</strong></div>
+        <div class="stat r"><span>Tạm dừng</span><strong>1</strong></div>
+      </div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>Danh sách khóa học</h2>
+          <div class="right">
+            <button class="btn btn-primary" data-modal="m-course-add">＋ Thêm khóa học</button>
+          </div>
+        </div>
+        <div class="card-body" style="padding-bottom:0">
+          <div class="toolbar" style="margin-bottom:16px">
+            <input type="search" placeholder="Tìm tên hoặc mã khóa học..." data-filter="tbl-courses">
+            <select data-filter-col="tbl-courses|5">
+              <option value="">Tất cả trạng thái</option>
+              <option>Đang tuyển sinh</option>
+              <option>Đang khai giảng</option>
+              <option>Tạm dừng</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table id="tbl-courses">
+            <thead>
+              <tr>
+                <th>Mã KH</th>
+                <th>Tên khóa học</th>
+                <th>Thời lượng</th>
+                <th class="num">Học phí</th>
+                <th class="num">Sĩ số</th>
+                <th>Trạng thái</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="code">KH-IELTS70</span></td>
+                <td><b>IELTS Intensive 7.0+</b></td>
+                <td>60 buổi (120h)</td>
+                <td class="num">12.500.000đ</td>
+                <td class="num">57</td>
+                <td><span class="badge ok">Đang tuyển sinh</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-page="course-detail">Xem</button>
+                  <button class="btn btn-sm" data-modal="m-course-edit">Sửa</button>
+                  <button class="btn btn-sm btn-danger" data-modal="m-delete" data-what="Khóa học IELTS Intensive 7.0+">Xóa</button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="code">KH-IELTSF</span></td>
+                <td><b>IELTS Foundation</b></td>
+                <td>40 buổi (80h)</td>
+                <td class="num">4.500.000đ</td>
+                <td class="num">110</td>
+                <td><span class="badge info">Đang khai giảng</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-page="course-detail">Xem</button>
+                  <button class="btn btn-sm" data-modal="m-course-edit">Sửa</button>
+                  <button class="btn btn-sm btn-danger" data-modal="m-delete" data-what="Khóa học IELTS Foundation">Xóa</button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="code">KH-TOEIC650</span></td>
+                <td><b>TOEIC 650+ cấp tốc</b></td>
+                <td>30 buổi (60h)</td>
+                <td class="num">3.800.000đ</td>
+                <td class="num">95</td>
+                <td><span class="badge info">Đang khai giảng</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-page="course-detail">Xem</button>
+                  <button class="btn btn-sm" data-modal="m-course-edit">Sửa</button>
+                  <button class="btn btn-sm btn-danger" data-modal="m-delete" data-what="Khóa học TOEIC 650+">Xóa</button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="code">KH-KIDS</span></td>
+                <td><b>Cambridge Starters</b></td>
+                <td>36 buổi (72h)</td>
+                <td class="num">4.200.000đ</td>
+                <td class="num">40</td>
+                <td><span class="badge info">Đang khai giảng</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-page="course-detail">Xem</button>
+                  <button class="btn btn-sm" data-modal="m-course-edit">Sửa</button>
+                  <button class="btn btn-sm btn-danger" data-modal="m-delete" data-what="Khóa học Cambridge Starters">Xóa</button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="code">KH-COMM01</span></td>
+                <td><b>Tiếng Anh Giao tiếp cơ bản</b></td>
+                <td>24 buổi (48h)</td>
+                <td class="num">3.500.000đ</td>
+                <td class="num">18</td>
+                <td><span class="badge bad">Tạm dừng</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-page="course-detail">Xem</button>
+                  <button class="btn btn-sm" data-modal="m-course-edit">Sửa</button>
+                  <button class="btn btn-sm btn-danger" data-modal="m-delete" data-what="Khóa học Giao tiếp">Xóa</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pager">
+          <span>Hiển thị 1 – 5 trong tổng số 5 khóa học</span>
+          <span class="pages"><a href="#" class="active">1</a></span>
+        </div>
+      </section>
+    </section>
+
+    <!-- 1.2 CHI TIẾT KHÓA HỌC -->
+    <section class="page" id="course-detail" data-title="Chi tiết khóa học" data-crumb="Trang chủ / Quản lý khóa học / Chi tiết" data-nav="courses">
+      <div class="grid-2">
+        <section class="card">
+          <div class="card-head"><h2>Thông tin tổng quan</h2></div>
+          <div class="card-body">
+            <dl class="detail">
+              <dt>Mã khóa học</dt><dd><span class="code">KH-IELTS70</span></dd>
+              <dt>Tên khóa học</dt><dd>IELTS Intensive 7.0+</dd>
+              <dt>Trình độ yêu cầu</dt><dd>IELTS 5.5 trở lên</dd>
+              <dt>Thời lượng</dt><dd>60 buổi (120 giờ học)</dd>
+              <dt>Học phí niêm yết</dt><dd><b>12.500.000 VNĐ</b></dd>
+              <dt>Trạng thái</dt><dd><span class="badge ok">Đang tuyển sinh</span></dd>
+            </dl>
+            <p style="color:var(--text-2); font-size:13px; margin:16px 0 0">
+              Khóa luyện thi chuyên sâu bốn kỹ năng, tặng kèm 4 buổi thi thử chấm theo tiêu chí chính thức của IDP/BC.
+            </p>
+            <div class="form-actions" style="margin-top:18px">
+              <button class="btn btn-gold" data-modal="m-course-edit">Chỉnh sửa</button>
+              <button class="btn" data-page="courses">Quay lại</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h2>Các lớp học đang mở</h2></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Mã lớp</th><th>Giáo viên</th><th class="num">Sĩ số</th><th>Trạng thái</th></tr></thead>
+              <tbody>
+                <tr><td>IELTS7-01</td><td>Nguyễn Minh Anh</td><td class="num">14/16</td><td><span class="badge info">Đang học</span></td></tr>
+                <tr><td>IELTS7-02</td><td>David Miller</td><td class="num">12/16</td><td><span class="badge info">Đang học</span></td></tr>
+                <tr><td>IELTS7-03</td><td>Chưa phân công</td><td class="num">6/16</td><td><span class="badge warn">Chờ khai giảng</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- 1.3 QUẢN LÝ LỚP HỌC -->
+    <section class="page" id="classes" data-title="Quản lý lớp học" data-crumb="Trang chủ / Quản lý khóa học / Lớp học">
+      <section class="card">
+        <div class="card-head">
+          <h2>Danh sách lớp học</h2>
+          <div class="right"><button class="btn btn-primary" data-modal="m-class-add">＋ Tạo lớp mới</button></div>
+        </div>
+        <div class="card-body" style="padding-bottom:0">
+          <div class="toolbar" style="margin-bottom:16px">
+            <input type="search" placeholder="Tìm mã lớp, khóa học..." data-filter="tbl-classes">
+            <select data-filter-col="tbl-classes|5">
+              <option value="">Tất cả trạng thái</option>
+              <option>Đang học</option>
+              <option>Chờ khai giảng</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table id="tbl-classes">
+            <thead>
+              <tr><th>Mã lớp</th><th>Khóa học</th><th>Giáo viên</th><th>Lịch học</th><th class="num">Sĩ số</th><th>Trạng thái</th><th>Thao tác</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="code">IELTS-F01</span></td>
+                <td>IELTS Foundation</td>
+                <td>Nguyễn Minh Anh</td>
+                <td>Thứ 2, 4, 6 · 18:00</td>
+                <td class="num">15/18</td>
+                <td><span class="badge info">Đang học</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-page="class-detail">Xem</button>
+                  <button class="btn btn-sm" data-modal="m-class-edit">Sửa</button>
+                  <button class="btn btn-sm btn-danger" data-modal="m-delete" data-what="Lớp IELTS-F01">Xóa</button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="code">TOEIC-02</span></td>
+                <td>TOEIC 650+ cấp tốc</td>
+                <td>Trần Quốc Bảo</td>
+                <td>Thứ 3, 5 · 18:30</td>
+                <td class="num">17/20</td>
+                <td><span class="badge info">Đang học</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-page="class-detail">Xem</button>
+                  <button class="btn btn-sm" data-modal="m-class-edit">Sửa</button>
+                  <button class="btn btn-sm btn-danger" data-modal="m-delete" data-what="Lớp TOEIC-02">Xóa</button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="code">IELTS7-03</span></td>
+                <td>IELTS Intensive 7.0+</td>
+                <td>Chưa phân công</td>
+                <td>Thứ 2, 4 · 19:45</td>
+                <td class="num">6/16</td>
+                <td><span class="badge warn">Chờ khai giảng</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-page="class-detail">Xem</button>
+                  <button class="btn btn-sm" data-modal="m-class-edit">Sửa</button>
+                  <button class="btn btn-sm btn-danger" data-modal="m-delete" data-what="Lớp IELTS7-03">Xóa</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <!-- 1.4 CHI TIẾT LỚP HỌC -->
+    <section class="page" id="class-detail" data-title="Chi tiết lớp học" data-crumb="Trang chủ / Quản lý lớp học / Chi tiết" data-nav="classes">
+      <div class="grid-2">
+        <section class="card">
+          <div class="card-head"><h2>Thông tin lớp học</h2></div>
+          <div class="card-body">
+            <dl class="detail">
+              <dt>Mã lớp học</dt><dd><span class="code">IELTS-F01</span></dd>
+              <dt>Khóa học</dt><dd>IELTS Foundation</dd>
+              <dt>Giảng viên phụ trách</dt><dd>Nguyễn Minh Anh</dd>
+              <dt>Phòng học</dt><dd>P.101 (Tầng 1)</dd>
+              <dt>Lịch học định kỳ</dt><dd>Thứ 2, 4, 6 · 18:00 – 19:30</dd>
+              <dt>Sĩ số hiện tại</dt><dd>15 / 18 Học viên</dd>
+            </dl>
+            <div class="form-actions" style="margin-top:18px">
+              <button class="btn btn-gold" data-modal="m-class-edit">Sửa thông tin</button>
+              <button class="btn" data-page="classes">Quay lại</button>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <div class="card-head"><h2>Danh sách học viên trong lớp</h2></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Mã HV</th><th>Họ tên</th><th class="num">Chuyên cần</th></tr></thead>
+              <tbody>
+                <tr><td>HV001</td><td>Phạm Gia Huy</td><td class="num">94%</td></tr>
+                <tr><td>HV004</td><td>Trịnh Bảo Ngân</td><td class="num">88%</td></tr>
+                <tr><td>HV007</td><td>Lý Khánh Duy</td><td class="num">76%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- 1.5 QUẢN LÝ LỊCH HỌC -->
+    <section class="page" id="schedule" data-title="Quản lý lịch học" data-crumb="Trang chủ / Quản lý khóa học / Lịch học">
+      <section class="card">
+        <div class="card-head">
+          <h2>Thời khóa biểu tuần</h2>
+          <div class="right">
+            <button class="btn btn-primary" data-modal="m-schedule-add">＋ Xếp lịch học</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="timetable">
+            <thead>
+              <tr><th>Ca học</th><th>Thứ 2</th><th>Thứ 3</th><th>Thứ 4</th><th>Thứ 5</th><th>Thứ 6</th><th>Thứ 7</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>Sáng</b><br><em style="color:var(--text-3)">09:00 - 10:30</em></td>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td><span class="slot g"><b>KIDS-01</b><em>P.201 · Thu Hà</em></span></td>
+              </tr>
+              <tr>
+                <td><b>Tối 1</b><br><em style="color:var(--text-3)">18:00 - 19:30</em></td>
+                <td><span class="slot"><b>IELTS-F01</b><em>P.101 · Minh Anh</em></span></td>
+                <td><span class="slot k"><b>TOEIC-02</b><em>P.102 · Quốc Bảo</em></span></td>
+                <td><span class="slot"><b>IELTS-F01</b><em>P.101 · Minh Anh</em></span></td>
+                <td><span class="slot k"><b>TOEIC-02</b><em>P.102 · Quốc Bảo</em></span></td>
+                <td><span class="slot"><b>IELTS-F01</b><em>P.101 · Minh Anh</em></span></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <!-- 1.6 QUẢN LÝ GIÁO VIÊN -->
+    <section class="page" id="teachers" data-title="Quản lý giáo viên" data-crumb="Trang chủ / Quản lý khóa học / Giáo viên">
+      <section class="card">
+        <div class="card-head">
+          <h2>Danh sách giáo viên</h2>
+          <div class="right"><button class="btn btn-primary" data-modal="m-teacher-add">＋ Thêm giáo viên</button></div>
+        </div>
+        <div class="table-wrap">
+          <table id="tbl-teachers">
+            <thead><tr><th>Mã GV</th><th>Họ tên</th><th>Chuyên môn</th><th class="num">Số lớp</th><th>Trạng thái</th><th>Thao tác</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><span class="code">GV01</span></td>
+                <td>Nguyễn Minh Anh</td>
+                <td>IELTS Writing, Reading</td>
+                <td class="num">3</td>
+                <td><span class="badge ok">Đang dạy</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-page="teacher-detail">Xem</button>
+                  <button class="btn btn-sm btn-danger" data-modal="m-delete" data-what="Giáo viên Nguyễn Minh Anh">Xóa</button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="code">GV04</span></td>
+                <td>David Miller</td>
+                <td>IELTS Speaking · Bản ngữ</td>
+                <td class="num">1</td>
+                <td><span class="badge warn">Tạm nghỉ</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-page="teacher-detail">Xem</button>
+                  <button class="btn btn-sm btn-danger" data-modal="m-delete" data-what="Giáo viên David Miller">Xóa</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <!-- 1.7 CHI TIẾT GIÁO VIÊN -->
+    <section class="page" id="teacher-detail" data-title="Chi tiết giáo viên" data-crumb="Trang chủ / Quản lý giáo viên / Hồ sơ" data-nav="teachers">
+      <section class="card" style="max-width:640px">
+        <div class="card-head"><h2>Hồ sơ giáo viên</h2></div>
+        <div class="card-body">
+          <dl class="detail">
+            <dt>Mã GV</dt><dd><span class="code">GV01</span></dd>
+            <dt>Họ tên</dt><dd>Nguyễn Minh Anh</dd>
+            <dt>Email</dt><dd>minhanh@globalenglish.edu.vn</dd>
+            <dt>Điện thoại</dt><dd>0905 123 456</dd>
+            <dt>Bằng cấp</dt><dd>IELTS 8.5 · Chứng chỉ TESOL</dd>
+            <dt>Trạng thái</dt><dd><span class="badge ok">Đang công tác</span></dd>
+          </dl>
+          <div class="form-actions" style="margin-top:18px">
+            <button class="btn" data-page="teachers">Quay lại danh sách</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         MODULE 2: TÀI KHOẢN ADMIN
+         ════════════════════════════════════════════════════════ -->
+
+    <!-- 2.1 THÔNG TIN CÁ NHÂN ADMIN -->
+    <section class="page" id="profile" data-title="Thông tin cá nhân" data-crumb="Trang chủ / Tài khoản Admin">
+      <section class="card" style="max-width:680px">
+        <div class="card-head"><h2>Hồ sơ Quản trị viên</h2></div>
+        <div class="card-body">
+          <div class="form-grid">
+            <div class="field">
+              <label for="p-name">Họ và tên <span class="req">*</span></label>
+              <input type="text" id="p-name" value="Nguyễn Văn A">
+            </div>
+            <div class="field">
+              <label for="p-user">Tên đăng nhập</label>
+              <input type="text" id="p-user" value="admin" disabled>
+              <p class="hint">Tên đăng nhập hệ thống cố định.</p>
+            </div>
+            <div class="field">
+              <label for="p-email">Email liên hệ <span class="req">*</span></label>
+              <input type="email" id="p-email" value="admin@globalenglish.edu.vn">
+            </div>
+            <div class="field">
+              <label for="p-phone">Số điện thoại</label>
+              <input type="tel" id="p-phone" value="0909 888 777">
+            </div>
+            <div class="field">
+              <label for="p-role">Quyền hạn</label>
+              <input type="text" id="p-role" value="Super Admin" disabled>
+            </div>
+            <div class="field">
+              <label for="p-birth">Ngày sinh</label>
+              <input type="date" id="p-birth" value="1990-04-22">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" data-toast="Đã lưu thông tin cá nhân!">Lưu thay đổi</button>
+            <button class="btn" data-page="password">Đổi mật khẩu</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- 2.2 ĐỔI MẬT KHẨU ADMIN -->
+    <section class="page" id="password" data-title="Đổi mật khẩu" data-crumb="Trang chủ / Tài khoản Admin">
+      <section class="card" style="max-width:480px">
+        <div class="card-head"><h2>Đổi mật khẩu Admin</h2></div>
+        <div class="card-body">
+          <div class="field">
+            <label for="pw-old">Mật khẩu hiện tại <span class="req">*</span></label>
+            <input type="password" id="pw-old" placeholder="Nhập mật khẩu cũ">
+          </div>
+          <div class="field">
+            <label for="pw-new">Mật khẩu mới <span class="req">*</span></label>
+            <input type="password" id="pw-new" placeholder="Tối thiểu 8 ký tự">
+            <p class="hint">Nên chứa chữ hoa, chữ thường, số và ký tự đặc biệt.</p>
+          </div>
+          <div class="field">
+            <label for="pw-confirm">Xác nhận mật khẩu mới <span class="req">*</span></label>
+            <input type="password" id="pw-confirm" placeholder="Nhập lại mật khẩu mới">
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" data-toast="Cập nhật mật khẩu thành công!">Cập nhật mật khẩu</button>
+            <button class="btn" data-page="profile">Hủy bỏ</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- 2.3 QUẢN LÝ DANH SÁCH TÀI KHOẢN -->
+    <section class="page" id="accounts" data-title="Quản lý tài khoản" data-crumb="Trang chủ / Tài khoản Admin / Danh sách">
+      <section class="card">
+        <div class="card-head">
+          <h2>Tài khoản người dùng hệ thống</h2>
+          <div class="right"><button class="btn btn-primary" data-modal="m-account-add">＋ Thêm tài khoản</button></div>
+        </div>
+        <div class="table-wrap">
+          <table id="tbl-accounts">
+            <thead>
+              <tr><th>Tên đăng nhập</th><th>Họ tên</th><th>Vai trò</th><th>Đăng nhập cuối</th><th>Trạng thái</th><th>Thao tác</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="code">admin</span></td>
+                <td>Nguyễn Văn A</td>
+                <td>Quản trị viên</td>
+                <td>Hôm nay 08:12</td>
+                <td><span class="badge ok">Hoạt động</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-modal="m-account-edit">Sửa</button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="code">giaovu01</span></td>
+                <td>Nguyễn Thị Mai</td>
+                <td>Giáo vụ</td>
+                <td>20/09/2026 17:40</td>
+                <td><span class="badge ok">Hoạt động</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-modal="m-account-edit">Sửa</button>
+                  <button class="btn btn-sm btn-danger" data-modal="m-delete" data-what="Tài khoản giaovu01">Khóa</button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="code">ketoan01</span></td>
+                <td>Lê Văn Nam</td>
+                <td>Kế toán</td>
+                <td>19/09/2026 09:05</td>
+                <td><span class="badge bad">Đã khóa</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm" data-modal="m-account-edit">Sửa</button>
+                  <button class="btn btn-sm btn-danger" data-modal="m-delete" data-what="Tài khoản ketoan01">Xóa</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    Global English Management System · Bản mẫu thiết kế Module Khóa học & Admin
+  </footer>
+</div>
+</div>
+
+<!-- ═══════════════ POPUP MODALS ═══════════════ -->
+
+<!-- Modal: Thêm khóa học -->
+<div class="overlay" id="m-course-add">
+  <div class="modal">
+    <div class="modal-head"><h3>Thêm khóa học mới</h3><button class="modal-close" data-close>&times;</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="field full"><label>Mã khóa học <span class="req">*</span></label><input type="text" placeholder="VD: KH-IELTS65"></div>
+        <div class="field full"><label>Tên khóa học <span class="req">*</span></label><input type="text" placeholder="VD: IELTS Intensive 6.5+"></div>
+        <div class="field"><label>Thời lượng (buổi)</label><input type="number" placeholder="40"></div>
+        <div class="field"><label>Học phí (VNĐ)</label><input type="text" placeholder="6.500.000"></div>
+        <div class="field"><label>Sĩ số tối đa</label><input type="number" placeholder="16"></div>
+        <div class="field"><label>Trạng thái</label><select><option>Đang tuyển sinh</option><option>Đang khai giảng</option><option>Tạm dừng</option></select></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close>Hủy</button>
+      <button class="btn btn-primary" data-toast="Đã thêm khóa học mới thành công!" data-close>Lưu khóa học</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Sửa khóa học -->
+<div class="overlay" id="m-course-edit">
+  <div class="modal">
+    <div class="modal-head"><h3>Chỉnh sửa khóa học</h3><button class="modal-close" data-close>&times;</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="field full"><label>Mã khóa học</label><input type="text" value="KH-IELTS70" disabled></div>
+        <div class="field full"><label>Tên khóa học</label><input type="text" value="IELTS Intensive 7.0+"></div>
+        <div class="field"><label>Thời lượng (buổi)</label><input type="number" value="60"></div>
+        <div class="field"><label>Học phí (VNĐ)</label><input type="text" value="12.500.000"></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close>Hủy</button>
+      <button class="btn btn-gold" data-toast="Đã cập nhật thông tin khóa học!" data-close>Cập nhật</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Thêm lớp học -->
+<div class="overlay" id="m-class-add">
+  <div class="modal">
+    <div class="modal-head"><h3>Tạo lớp học mới</h3><button class="modal-close" data-close>&times;</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="field"><label>Mã lớp <span class="req">*</span></label><input type="text" placeholder="VD: IELTS-F02"></div>
+        <div class="field"><label>Khóa học <span class="req">*</span></label>
+          <select><option>IELTS Foundation</option><option>IELTS Intensive 7.0+</option><option>TOEIC 650+ cấp tốc</option></select>
+        </div>
+        <div class="field"><label>Giáo viên phụ trách</label>
+          <select><option>Chưa phân công</option><option>Nguyễn Minh Anh</option><option>David Miller</option></select>
+        </div>
+        <div class="field"><label>Phòng học</label><select><option>P.101</option><option>P.102</option><option>P.201</option></select></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close>Hủy</button>
+      <button class="btn btn-primary" data-toast="Đã tạo lớp học thành công!" data-close>Tạo lớp</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Sửa lớp học -->
+<div class="overlay" id="m-class-edit">
+  <div class="modal">
+    <div class="modal-head"><h3>Chỉnh sửa lớp học</h3><button class="modal-close" data-close>&times;</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="field"><label>Mã lớp</label><input type="text" value="IELTS-F01" disabled></div>
+        <div class="field"><label>Giáo viên</label><select><option>Nguyễn Minh Anh</option><option>David Miller</option></select></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close>Hủy</button>
+      <button class="btn btn-gold" data-toast="Đã cập nhật thông tin lớp!" data-close>Cập nhật</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Xếp lịch học -->
+<div class="overlay" id="m-schedule-add">
+  <div class="modal">
+    <div class="modal-head"><h3>Xếp lịch học</h3><button class="modal-close" data-close>&times;</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="field"><label>Chọn lớp <span class="req">*</span></label><select><option>IELTS-F01</option><option>TOEIC-02</option></select></div>
+        <div class="field"><label>Phòng học</label><select><option>P.101</option><option>P.102</option></select></div>
+        <div class="field"><label>Giờ bắt đầu</label><input type="text" placeholder="18:00"></div>
+        <div class="field"><label>Giờ kết thúc</label><input type="text" placeholder="19:30"></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close>Hủy</button>
+      <button class="btn btn-primary" data-toast="Đã lưu lịch học!" data-close>Lưu lịch</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Thêm giáo viên -->
+<div class="overlay" id="m-teacher-add">
+  <div class="modal">
+    <div class="modal-head"><h3>Thêm giáo viên mới</h3><button class="modal-close" data-close>&times;</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="field"><label>Họ tên <span class="req">*</span></label><input type="text" placeholder="Nguyễn Văn B"></div>
+        <div class="field"><label>Điện thoại</label><input type="tel" placeholder="09xx xxx xxx"></div>
+        <div class="field full"><label>Chuyên môn</label><input type="text" placeholder="IELTS Speaking, Writing..."></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close>Hủy</button>
+      <button class="btn btn-primary" data-toast="Đã thêm hồ sơ giáo viên!" data-close>Lưu</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Thêm tài khoản Admin / Nhân sự -->
+<div class="overlay" id="m-account-add">
+  <div class="modal">
+    <div class="modal-head"><h3>Tạo tài khoản hệ thống</h3><button class="modal-close" data-close>&times;</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="field"><label>Tên đăng nhập <span class="req">*</span></label><input type="text" placeholder="VD: giaovu02"></div>
+        <div class="field"><label>Họ và tên <span class="req">*</span></label><input type="text" placeholder="Trần Thị C"></div>
+        <div class="field"><label>Vai trò</label><select><option>Giáo vụ</option><option>Kế toán</option><option>Quản trị viên</option></select></div>
+        <div class="field"><label>Mật khẩu khởi tạo <span class="req">*</span></label><input type="password" placeholder="Tối thiểu 8 ký tự"></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close>Hủy</button>
+      <button class="btn btn-primary" data-toast="Đã tạo tài khoản thành công!" data-close>Tạo tài khoản</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Sửa tài khoản -->
+<div class="overlay" id="m-account-edit">
+  <div class="modal narrow">
+    <div class="modal-head"><h3>Chỉnh sửa tài khoản</h3><button class="modal-close" data-close>&times;</button></div>
+    <div class="modal-body">
+      <div class="field"><label>Tên đăng nhập</label><input type="text" value="giaovu01" disabled></div>
+      <div class="field"><label>Vai trò</label><select><option>Giáo vụ</option><option>Kế toán</option><option>Quản trị viên</option></select></div>
+      <div class="field"><label>Trạng thái</label><select><option>Hoạt động</option><option>Đã khóa</option></select></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close>Hủy</button>
+      <button class="btn btn-gold" data-toast="Đã cập nhật tài khoản!" data-close>Cập nhật</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Xác nhận xóa -->
+<div class="overlay" id="m-delete">
+  <div class="modal narrow">
+    <div class="modal-head"><h3>Xác nhận thao tác</h3><button class="modal-close" data-close>&times;</button></div>
+    <div class="modal-body">
+      <p style="margin-top:0">Bạn có chắc chắn muốn xóa/thực hiện với <b id="delete-what">mục này</b>?</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close>Hủy</button>
+      <button class="btn btn-danger" data-toast="Đã thực hiện thao tác xóa!" data-close>Xác nhận</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Đăng xuất -->
+<div class="overlay" id="m-logout">
+  <div class="modal narrow">
+    <div class="modal-head"><h3>Đăng xuất</h3><button class="modal-close" data-close>&times;</button></div>
+    <div class="modal-body">
+      <p style="margin:0">Bạn có chắc chắn muốn kết thúc phiên đăng nhập của Admin?</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close>Ở lại</button>
+      <button class="btn btn-primary" data-toast="Đã đăng xuất tài khoản Admin" data-close>Đăng xuất</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ═══════════════ JAVASCRIPT ĐIỀU HƯỚNG & TƯƠNG TÁC ═══════════════ -->
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Chuyển trang (Tab Routing) ---------- */
+  var pages = document.querySelectorAll('.page');
+  var titleEl = document.getElementById('page-title');
+  var crumbEl = document.getElementById('crumb');
+
+  function go(id){
+    var target = document.getElementById(id);
+    if(!target || !target.classList.contains('page')) return;
+
+    pages.forEach(function(p){ p.classList.remove('show'); });
+    target.classList.add('show');
+
+    titleEl.textContent = target.dataset.title || '';
+    crumbEl.innerHTML = '<b>' + (target.dataset.crumb || 'Trang chủ') + '</b>';
+
+    var navId = target.dataset.nav || id;
+    document.querySelectorAll('.nav-sub a, .nav-item').forEach(function(a){ a.classList.remove('active'); });
+    var link = document.querySelector('[data-page="' + navId + '"]');
+    if(link){
+      link.classList.add('active');
+      var grp = link.closest('.nav-group');
+      if(grp){
+        grp.classList.add('open');
+        grp.querySelector('.nav-toggle').setAttribute('aria-expanded','true');
+      }
+    }
+
+    if(location.hash.slice(1) !== id) history.replaceState(null,'','#'+id);
+    window.scrollTo({top:0, behavior:'instant'});
+    closeSidebar();
+  }
+
+  /* ---------- Đóng / Mở nhóm menu ---------- */
+  document.querySelectorAll('.nav-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var grp = btn.closest('.nav-group');
+      var open = grp.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  /* ---------- Điều khiển Modal (Popup) ---------- */
+  function openModal(id, what){
+    var m = document.getElementById(id);
+    if(!m) return;
+    if(id === 'm-delete'){
+      document.getElementById('delete-what').textContent = what || 'mục này';
+    }
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModals(){
+    document.querySelectorAll('.overlay.open').forEach(function(m){ m.classList.remove('open'); });
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.overlay').forEach(function(o){
+    o.addEventListener('click', function(e){ if(e.target === o) closeModals(); });
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModals(); });
+
+  /* ---------- Hiển thị Thông báo Toast ---------- */
+  var toastEl = document.getElementById('toast'), toastTimer;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  /* ---------- Lắng nghe sự kiện click chung ---------- */
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-page],[data-modal],[data-close],[data-toast]');
+    if(!t) return;
+
+    if(t.hasAttribute('data-close') || t.hasAttribute('data-modal') || t.hasAttribute('data-page')) e.preventDefault();
+
+    if(t.hasAttribute('data-toast')) toast(t.getAttribute('data-toast'));
+    if(t.hasAttribute('data-close')) closeModals();
+    if(t.hasAttribute('data-modal')) openModal(t.getAttribute('data-modal'), t.getAttribute('data-what'));
+    if(t.hasAttribute('data-page')) go(t.getAttribute('data-page'));
+  });
+
+  /* ---------- Tìm kiếm & Lọc dữ liệu trong Bảng ---------- */
+  function rowsOf(id){
+    var tb = document.querySelector('#' + id + ' tbody');
+    return tb ? Array.prototype.slice.call(tb.rows) : [];
+  }
+  function applyFilters(id){
+    var text = '', col = null, colVal = '';
+    var input = document.querySelector('[data-filter="' + id + '"]');
+    if(input) text = input.value.trim().toLowerCase();
+    var sel = document.querySelector('[data-filter-col^="' + id + '|"]');
+    if(sel){ col = parseInt(sel.getAttribute('data-filter-col').split('|')[1],10); colVal = sel.value.toLowerCase(); }
+
+    var shown = 0;
+    rowsOf(id).forEach(function(r){
+      if(r.classList.contains('empty-row')) return;
+      var okText = !text || r.textContent.toLowerCase().indexOf(text) > -1;
+      var okCol = !colVal || (r.cells[col] && r.cells[col].textContent.toLowerCase().indexOf(colVal) > -1);
+      var show = okText && okCol;
+      r.style.display = show ? '' : 'none';
+      if(show) shown++;
+    });
+
+    var tb = document.querySelector('#' + id + ' tbody');
+    var empty = tb.querySelector('.empty-row');
+    if(shown === 0){
+      if(!empty){
+        var cols = document.querySelector('#' + id + ' thead tr').cells.length;
+        var tr = document.createElement('tr');
+        tr.className = 'empty-row';
+        tr.innerHTML = '<td colspan="' + cols + '">Không tìm thấy dữ liệu phù hợp.</td>';
+        tb.appendChild(tr);
+      }
+    } else if(empty){
+      empty.remove();
+    }
+  }
+  document.querySelectorAll('[data-filter]').forEach(function(el){
+    el.addEventListener('input', function(){ applyFilters(el.getAttribute('data-filter')); });
+  });
+  document.querySelectorAll('[data-filter-col]').forEach(function(el){
+    el.addEventListener('change', function(){ applyFilters(el.getAttribute('data-filter-col').split('|')[0]); });
+  });
+
+  /* ---------- Sidebar trên Mobile ---------- */
+  var sidebar = document.getElementById('sidebar');
+  var scrim = document.getElementById('scrim');
+  function closeSidebar(){ sidebar.classList.remove('open'); scrim.classList.remove('open'); }
+  document.getElementById('burger').addEventListener('click', function(){
+    sidebar.classList.toggle('open');
+    scrim.classList.toggle('open');
+  });
+  scrim.addEventListener('click', closeSidebar);
+
+  /* ---------- Khởi chạy ---------- */
+  window.addEventListener('hashchange', function(){ go(location.hash.slice(1)); });
+  go(location.hash.slice(1) || 'courses');
+})();
+</script>
+</body>
+</html>
