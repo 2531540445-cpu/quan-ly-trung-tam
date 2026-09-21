@@ -3,356 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi tiết khóa học - English Center</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #f5f7fb;
-            color: #222;
-        }
-
-        /* HEADER */
-        header {
-            background: #ffffff;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2563eb;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            margin-left: 25px;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            color: #2563eb;
-        }
-
-        /* COURSE INTRO */
-        .course-banner {
-            background: linear-gradient(135deg, #2563eb, #4f46e5);
-            color: white;
-            padding: 60px 8%;
-        }
-
-        .course-banner h1 {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .course-banner p {
-            font-size: 18px;
-            max-width: 700px;
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 84%;
-            max-width: 1200px;
-            margin: 40px auto;
-        }
-
-        .content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-        }
-
-        /* LEFT */
-        .section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-        }
-
-        .section h2 {
-            margin-bottom: 20px;
-            color: #1e3a8a;
-        }
-
-        .section p {
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-
-        .lesson {
-            border-left: 4px solid #2563eb;
-            padding: 15px 20px;
-            margin-bottom: 15px;
-            background: #f8fafc;
-            border-radius: 8px;
-        }
-
-        .lesson h3 {
-            margin-bottom: 8px;
-        }
-
-        /* TEACHER */
-        .teacher {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .teacher-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: #dbeafe;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 35px;
-        }
-
-        /* REGISTER FORM */
-        .register {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 20px;
-        }
-
-        .register h2 {
-            margin-bottom: 20px;
-            color: #1e3a8a;
-        }
-
-        .price {
-            font-size: 28px;
-            color: #2563eb;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .register input,
-        .register select {
-            width: 100%;
-            padding: 13px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            background: #2563eb;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #1d4ed8;
-        }
-
-        .back {
-            display: inline-block;
-            margin-bottom: 25px;
-            color: #2563eb;
-            text-decoration: none;
-        }
-
-        /* FOOTER */
-        footer {
-            margin-top: 50px;
-            background: #111827;
-            color: white;
-            text-align: center;
-            padding: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .content {
-                grid-template-columns: 1fr;
-            }
-
-            .course-banner h1 {
-                font-size: 30px;
-            }
-
-            nav {
-                display: none;
-            }
-        }
-    </style>
+    <title>Quản lý Khóa học - Trung Tâm Ngoại Ngữ</title>
+    <!-- Liên kết tới file CSS giao diện -->
+    <link rel="stylesheet" href="css/style-admin.css">
 </head>
-
 <body>
 
-<header>
-    <div class="logo">English Center</div>
+    <div class="admin-dashboard">
 
-    <nav>
-        <a href="index.html">Trang chủ</a>
-        <a href="courses.html">Khóa học</a>
-    </nav>
-</header>
-
-
-<section class="course-banner">
-    <h1>English Communication A1</h1>
-
-    <p>
-        Khóa học dành cho người mới bắt đầu,
-        giúp xây dựng nền tảng tiếng Anh và
-        tự tin giao tiếp trong những tình huống cơ bản.
-    </p>
-</section>
-
-
-<div class="container">
-
-    <a href="courses.html" class="back">
-        ← Quay lại danh sách khóa học
-    </a>
-
-    <div class="content">
-
-        <!-- LEFT CONTENT -->
-        <div>
-
-            <div class="section">
-                <h2>🎯 Mục tiêu khóa học</h2>
-
-                <p>✓ Nắm được những kiến thức tiếng Anh cơ bản.</p>
-                <p>✓ Có thể giới thiệu bản thân bằng tiếng Anh.</p>
-                <p>✓ Giao tiếp trong những tình huống hàng ngày.</p>
-                <p>✓ Cải thiện phát âm và từ vựng.</p>
-                <p>✓ Xây dựng nền tảng để học lên trình độ A2.</p>
+        <!-- ================= 1. SIDEBAR MENU BÊN TRÁI ================= -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <h2>GLOBAL ENGLISH</h2>
+                <span>Hệ Thống Quản Trị</span>
             </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="#"><span class="icon">📊</span> Tổng quan (Dashboard)</a>
+                    </li>
+                    <li class="active">
+                        <a href="#"><span class="icon">📚</span> Quản lý Khóa học</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="icon">🏫</span> Quản lý Lớp học</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="icon">👨‍🎓</span> Quản lý Học viên</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="icon">👩‍🏫</span> Quản lý Giảng viên</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="icon">💳</span> Quan lý Học phí</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="icon">⚙️</span> Cài đặt hệ thống</a>
+                    </li>
+                </ul>
+            </nav>
 
-
-            <div class="section">
-                <h2>📚 Nội dung khóa học</h2>
-
-                <div class="lesson">
-                    <h3>Buổi 1: Greetings & Introduction</h3>
-                    <p>Học cách chào hỏi và giới thiệu bản thân.</p>
-                </div>
-
-                <div class="lesson">
-                    <h3>Buổi 2: Family & Friends</h3>
-                    <p>Từ vựng về gia đình và cách mô tả người.</p>
-                </div>
-
-                <div class="lesson">
-                    <h3>Buổi 3: Daily Activities</h3>
-                    <p>Thực hành nói về các hoạt động hàng ngày.</p>
-                </div>
-
-                <div class="lesson">
-                    <h3>Buổi 4: Food & Drinks</h3>
-                    <p>Học từ vựng và giao tiếp khi gọi món.</p>
-                </div>
-
-                <div class="lesson">
-                    <h3>Buổi 5: Review & Speaking</h3>
-                    <p>Ôn tập và thực hành giao tiếp.</p>
-                </div>
+            <div class="sidebar-footer">
+                <p>Phiên bản: 1.0.0 Static</p>
             </div>
+        </aside>
 
+        <!-- ================= 2. PHẦN NỘI DUNG CHÍNH (MAIN CONTENT) ================= -->
+        <main class="main-content">
 
-            <div class="section">
-                <h2>👨‍🏫 Giảng viên</h2>
-
-                <div class="teacher">
-                    <div class="teacher-img">👨‍🏫</div>
-
-                    <div>
-                        <h3>Nguyễn Minh Anh</h3>
-                        <p>Giảng viên tiếng Anh</p>
-                        <p>5+ năm kinh nghiệm giảng dạy.</p>
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-title">
+                    <h1>Danh Sách Khóa Học</h1>
+                    <p class="breadcrumb">Trang chủ / Quản lý Đào tạo / Danh sách khóa học</p>
+                </div>
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/40" alt="Avatar Admin" class="avatar">
+                    <div class="user-detail">
+                        <span class="user-name">Nguyễn Văn A</span>
+                        <span class="user-role">Quản trị viên</span>
                     </div>
                 </div>
-            </div>
+            </header>
 
-        </div>
+            <!-- Thống kê nhanh (Stats Widget) -->
+            <section class="stats-cards">
+                <div class="card stat-card">
+                    <h3>Tổng Khóa Học</h3>
+                    <p class="stat-number">12</p>
+                </div>
+                <div class="card stat-card border-green">
+                    <h3>Đang Tuyển Sinh</h3>
+                    <p class="stat-number">8</p>
+                </div>
+                <div class="card stat-card border-orange">
+                    <h3>Đang Khai Giảng</h3>
+                    <p class="stat-number">3</p>
+                </div>
+                <div class="card stat-card border-red">
+                    <h3>Tạm Dừng</h3>
+                    <p class="stat-number">1</p>
+                </div>
+            </section>
 
+            <!-- Khu vực Bảng dữ liệu & Thanh công cụ -->
+            <section class="content-body card">
 
-        <!-- RIGHT REGISTER -->
-        <div>
+                <!-- Action Bar: Lọc, Tìm kiếm & Nút Thêm mới -->
+                <div class="action-bar">
+                    <div class="filter-group">
+                        <input type="text" placeholder="🔍 Tìm kiếm mã KH, tên khóa học..." class="form-input">
+                        <select class="form-select">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="1">Đang tuyển sinh</option>
+                            <option value="2">Đang khai giảng</option>
+                            <option value="0">Tạm dừng</option>
+                        </select>
+                    </div>
 
-            <div class="register">
-
-                <h2>Đăng ký khóa học</h2>
-
-                <div class="price">
-                    1.500.000 VNĐ
+                    <!-- Nút Thêm mới mở Modal Form (Mô phỏng bằng HTML Anchor) -->
+                    <a href="#modal-add-course" class="btn btn-primary">+ Thêm Khóa Học Mới</a>
                 </div>
 
-                <p>Thời lượng: 5 tuần</p>
-                <p>Trình độ: A1</p>
-                <br>
+                <!-- BẢNG DỮ LIỆU KHÓA HỌC -->
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã KH</th>
+                                <th>Tên Khóa Học</th>
+                                <th>Thời Lượng</th>
+                                <th>Học Phí</th>
+                                <th>Trạng Thái</th>
+                                <th>Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dòng 1 -->
+                            <tr>
+                                <td>1</td>
+                                <td><span class="code-badge">KH-IELTS7.0</span></td>
+                                <td><strong>IELTS Intensive 7.0+</strong></td>
+                                <td>60 buổi (120 giờ)</td>
+                                <td class="price">12.500.000 VNĐ</td>
+                                <td><span class="status-badge status-green">Đang tuyển sinh</span></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a href="#modal-edit-course" class="btn-icon btn-edit" title="Sửa">✏️ Sửa</a>
+                                        <a href="#modal-delete-confirm" class="btn-icon btn-delete" title="Xóa">🗑️ Xóa</a>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <form>
+                            <!-- Dòng 2 -->
+                            <tr>
+                                <td>2</td>
+                                <td><span class="code-badge">KH-TOEIC650</span></td>
+                                <td><strong>TOEIC Cấp Tốc 650+</strong></td>
+                                <td>30 buổi (60 giờ)</td>
+                                <td class="price">5.800.000 VNĐ</td>
+                                <td><span class="status-badge status-blue">Đang khai giảng</span></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a href="#modal-edit-course" class="btn-icon btn-edit" title="Sửa">✏️ Sửa</a>
+                                        <a href="#modal-delete-confirm" class="btn-icon btn-delete" title="Xóa">🗑️ Xóa</a>
+                                    </div>
+                                </td>
+                            </tr>
 
-                    <input
-                        type="text"
-                        placeholder="Họ và tên"
-                        required
-                    >
+                            <!-- Dòng 3 -->
+                            <tr>
+                                <td>3</td>
+                                <td><span class="code-badge">KH-COMM01</span></td>
+                                <td><strong>Tiếng Anh Giao Tiếp Cơ Bản</strong></td>
+                                <td>24 buổi (48 giờ)</td>
+                                <td class="price">3.500.000 VNĐ</td>
+                                <td><span class="status-badge status-orange">Tạm dừng</span></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a href="#modal-edit-course" class="btn-icon btn-edit" title="Sửa">✏️ Sửa</a>
+                                        <a href="#modal-delete-confirm" class="btn-icon btn-delete" title="Xóa">🗑️ Xóa</a>
+                                    </div>
+                                </td>
+                            </tr>
 
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        required
-                    >
+                            <!-- Dòng 4 -->
+                            <tr>
+                                <td>4</td>
+                                <td><span class="code-badge">KH-KIDS-STAR</span></td>
+                                <td><strong>Cambridge Starters (Trẻ em)</strong></td>
+                                <td>36 buổi (72 giờ)</td>
+                                <td class="price">4.200.000 VNĐ</td>
+                                <td><span class="status-badge status-green">Đang tuyển sinh</span></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a href="#modal-edit-course" class="btn-icon btn-edit" title="Sửa">✏️ Sửa</a>
+                                        <a href="#modal-delete-confirm" class="btn-icon btn-delete" title="Xóa">🗑️ Xóa</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    <input
-                        type="tel"
-                        placeholder="Số điện thoại"
-                        required
-                    >
+                <!-- Phân trang mô phỏng -->
+                <div class="pagination">
+                    <span>Hiển thị 1 - 4 trong tổng số 12 khóa học</span>
+                    <div class="page-numbers">
+                        <a href="#" class="page-link active">1</a>
+                        <a href="#" class="page-link">2</a>
+                        <a href="#" class="page-link">3</a>
+                    </div>
+                </div>
 
-                    <select>
-                        <option>Đăng ký học thử</option>
-                        <option>Đăng ký khóa học</option>
-                    </select>
-
-                    <button class="btn">
-                        Đăng ký ngay
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
+            </section>
+        </main>
     </div>
 
-</div>
+    <!-- ================= 3. CÁC MODAL FORM MÔ PHỎNG (Sử dụng CSS :target) ================= -->
 
+    <!-- Modal 1: Form Thêm Mới Khóa Học -->
+    <div id="modal-add-course" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Thêm Mới Khóa Học</h3>
+                <a href="#" class="modal-close">&times;</a>
+            </div>
+            <form class="modal-body">
+                <div class="form-group">
+                    <label>Mã Khóa Học (*)</label>
+                    <input type="text" placeholder="VD: KH-IELTS6.5" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Tên Khóa Học (*)</label>
+                    <input type="text" placeholder="Nhập tên khóa học..." class="form-control" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Thời Lượng (Buổi)</label>
+                        <input type="number" placeholder="30" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                        <label>Học Phí (VNĐ)</label>
+                        <input type="text" placeholder="5.000.000" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Trạng Thái</label>
+                    <select class="form-control">
+                        <option>Đang tuyển sinh</option>
+                        <option>Đang khai giảng</option>
+                        <option>Tạm dừng</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mô Tả Khóa Học</label>
+                    <textarea rows="3" placeholder="Nhập tóm tắt nội dung khóa học..." class="form-control"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-secondary">Hủy bỏ</a>
+                    <a href="#" class="btn btn-primary">Lưu Khóa Học (Mô phỏng)</a>
+                </div>
+            </form>
+        </div>
+    </div>
 
-<footer>
-    <p>© 2026 English Center - Language Learning System</p>
-</footer>
+    <!-- Modal 2: Form Sửa Khóa Học -->
+    <div id="modal-edit-course" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Chỉnh Sửa Thông Tin Khóa Học</h3>
+                <a href="#" class="modal-close">&times;</a>
+            </div>
+            <form class="modal-body">
+                <div class="form-group">
+                    <label>Mã Khóa Học</label>
+                    <input type="text" value="KH-IELTS7.0" class="form-control" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Tên Khóa Học</label>
+                    <input type="text" value="IELTS Intensive 7.0+" class="form-control">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Thời Lượng</label>
+                        <input type="text" value="60 buổi (120 giờ)" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                        <label>Học Phí (VNĐ)</label>
+                        <input type="text" value="12.500.000" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-secondary">Hủy</a>
+                    <a href="#" class="btn btn-warning">Cập Nhật (Mô phỏng)</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 3: Xác Nhận Xóa Khóa Học -->
+    <div id="modal-delete-confirm" class="modal-overlay">
+        <div class="modal-box modal-small">
+            <div class="modal-header">
+                <h3 class="text-red">⚠️ Xác Nhận Xóa</h3>
+                <a href="#" class="modal-close">&times;</a>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn xóa khóa học này ra khỏi hệ thống không?</p>
+                <p class="note-text">Lưu ý: Hành động này không thể hoàn tác trong bản demo.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-secondary">Hủy bỏ</a>
+                <a href="#" class="btn btn-danger">Đồng Ý Xóa</a>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
