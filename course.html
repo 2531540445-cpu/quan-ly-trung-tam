@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Danh sách khóa học — English Center</title>
+<meta name="description" content="Các khóa học tiếng Anh tại English Center: IELTS, TOEIC, Cambridge trẻ em, giao tiếp và tiếng Anh thương mại.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="courses.css">
+</head>
+<body>
+<a class="skip" href="#ket-qua">Bỏ qua để tới danh sách khóa học</a>
+
+<!-- ═══════════════ HEADER (dùng chung với index.html) ═══════════════ -->
+<header class="site-header">
+  <div class="wrap header__in">
+    <a class="logo" href="index.html"><b>English Center</b><span>Trung tâm Anh ngữ</span></a>
+    <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="nav">☰</button>
+    <nav class="nav" id="nav" aria-label="Điều hướng chính">
+      <a href="index.html">Trang chủ</a>
+      <a href="courses.html" aria-current="page">Khóa học</a>
+      <a href="index.html#danh-gia">Đánh giá</a>
+      <a href="course-detail.html#dang-ky" class="btn btn--gold btn--sm">Đăng ký học thử</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ═══════════════ TIÊU ĐỀ TRANG ═══════════════ -->
+  <section class="hero">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Đường dẫn"><a href="index.html">Trang chủ</a><span>/</span><b>Khóa học</b></nav>
+      <h1>Khóa học tiếng Anh cho mọi mục tiêu</h1>
+      <p>Từ nền tảng đến luyện thi IELTS, TOEIC, lớp thiếu nhi và tiếng Anh công sở. Lọc theo mục tiêu, trình độ hoặc học phí để chọn nhanh khóa học phù hợp.</p>
+      <ul class="hero__stats">
+        <li><strong>6</strong> khóa học</li><li><strong>4</strong> lớp đang mở</li><li><strong>4</strong> giáo viên</li><li><strong>248</strong> học viên</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TÌM KIẾM & BỘ LỌC ═══════════════ -->
+  <section class="filters" aria-label="Tìm kiếm và bộ lọc">
+    <div class="wrap">
+      <div class="chips" role="group" aria-label="Lọc theo mục tiêu học">
+        <button class="chip is-on" data-group="all" aria-pressed="true">Tất cả</button>
+        <button class="chip" data-group="thi" aria-pressed="false">Luyện thi</button>
+        <button class="chip" data-group="kids" aria-pressed="false">Trẻ em</button>
+        <button class="chip" data-group="work" aria-pressed="false">Giao tiếp &amp; công việc</button>
+      </div>
+      <div class="filters__row">
+        <label class="f f--search"><span>Tìm khóa học</span><input type="search" id="q" placeholder="VD: IELTS, TOEIC, giao tiếp..."></label>
+        <label class="f"><span>Trình độ</span>
+          <select id="level"><option value="">Tất cả trình độ</option><option>Cơ bản</option><option>Trung cấp</option><option>Nâng cao</option></select></label>
+        <label class="f"><span>Trạng thái</span>
+          <select id="status"><option value="">Tất cả trạng thái</option><option value="ok">Đang tuyển sinh</option><option value="info">Đang khai giảng</option><option value="bad">Tạm dừng</option></select></label>
+        <label class="f"><span>Sắp xếp</span>
+          <select id="sort"><option value="">Mặc định</option><option value="asc">Học phí tăng dần</option><option value="desc">Học phí giảm dần</option><option value="name">Tên A → Z</option></select></label>
+        <div class="view" role="group" aria-label="Kiểu hiển thị">
+          <button id="v-grid" class="is-on" aria-pressed="true">Lưới</button>
+          <button id="v-list" aria-pressed="false">Danh sách</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ DANH SÁCH KHÓA HỌC ═══════════════ -->
+  <section class="wrap results" id="ket-qua">
+    <div class="results__bar">
+      <p id="count" aria-live="polite">Hiển thị <b>6</b> / 6 khóa học</p>
+      <button class="link" id="reset" hidden>Xóa bộ lọc</button>
+    </div>
+
+    <div class="grid" id="grid">
+      <article class="card" data-group="thi" data-level="Nâng cao" data-status="ok" data-price="12500000" data-name="ielts intensive 7.0+"
+        data-id="ielts-70" data-code="KH-IELTS70" data-title="IELTS Intensive 7.0+" data-desc="Luyện thi chuyên sâu bốn kỹ năng, kèm 4 buổi thi thử chấm theo tiêu chí IELTS và buổi tư vấn lộ trình riêng." data-sessions="60" data-hours="120" data-fee="12.500.000đ" data-entry="IELTS 5.5 trở lên" data-max="16" data-status-label="Đang tuyển sinh">
+        <a class="thumb thumb--thi" href="course-detail.html?id=ielts-70" tabindex="-1" aria-hidden="true">
+          <span class="thumb__glyph">IELTS</span><span class="tag">Luyện thi</span>
+        </a>
+        <div class="card__body">
+          <div class="card__badges"><span class="level level--3">Nâng cao</span><span class="badge ok">Đang tuyển sinh</span></div>
+          <h3 class="card__title"><a href="course-detail.html?id=ielts-70">IELTS Intensive 7.0+</a></h3>
+          <p class="card__desc">Luyện thi chuyên sâu bốn kỹ năng, kèm 4 buổi thi thử chấm theo tiêu chí IELTS và buổi tư vấn lộ trình riêng.</p>
+          <ul class="meta"><li>60 buổi</li><li>120 giờ học</li></ul>
+        </div>
+        <div class="card__foot">
+          <div class="price"><small>Học phí</small><strong>12.500.000đ</strong></div>
+          <div class="actions"><button class="btn btn--ghost" data-quick>Xem nhanh</button><a class="btn btn--gold" href="course-detail.html?id=ielts-70#dang-ky">Đăng ký</a></div>
+        </div>
+      </article>
+      <article class="card" data-group="thi" data-level="Cơ bản" data-status="info" data-price="4500000" data-name="ielts foundation"
+        data-id="ielts-foundation" data-code="KH-IELTSF" data-title="IELTS Foundation" data-desc="Xây nền tảng từ vựng, ngữ pháp và làm quen bốn kỹ năng cho người mới bắt đầu." data-sessions="40" data-hours="80" data-fee="4.500.000đ" data-entry="Không yêu cầu" data-max="18" data-status-label="Đang khai giảng">
+        <a class="thumb thumb--thi" href="course-detail.html?id=ielts-foundation" tabindex="-1" aria-hidden="true">
+          <span class="thumb__glyph">IELTS</span><span class="tag">Luyện thi</span>
+        </a>
+        <div class="card__body">
+          <div class="card__badges"><span class="level level--1">Cơ bản</span><span class="badge info">Đang khai giảng</span></div>
+          <h3 class="card__title"><a href="course-detail.html?id=ielts-foundation">IELTS Foundation</a></h3>
+          <p class="card__desc">Xây nền tảng từ vựng, ngữ pháp và làm quen bốn kỹ năng cho người mới bắt đầu.</p>
+          <ul class="meta"><li>40 buổi</li><li>80 giờ học</li></ul>
+        </div>
+        <div class="card__foot">
+          <div class="price"><small>Học phí</small><strong>4.500.000đ</strong></div>
+          <div class="actions"><button class="btn btn--ghost" data-quick>Xem nhanh</button><a class="btn btn--gold" href="course-detail.html?id=ielts-foundation#dang-ky">Đăng ký</a></div>
+        </div>
+      </article>
+      <article class="card" data-group="thi" data-level="Trung cấp" data-status="info" data-price="3800000" data-name="toeic 650+ cấp tốc"
+        data-id="toeic-650" data-code="KH-TOEIC650" data-title="TOEIC 650+ cấp tốc" data-desc="Chiến lược làm bài Listening – Reading, tăng điểm nhanh trong 30 buổi." data-sessions="30" data-hours="60" data-fee="3.800.000đ" data-entry="TOEIC 350 trở lên" data-max="20" data-status-label="Đang khai giảng">
+        <a class="thumb thumb--thi" href="course-detail.html?id=toeic-650" tabindex="-1" aria-hidden="true">
+          <span class="thumb__glyph">TOEIC</span><span class="tag">Luyện thi</span>
+        </a>
+        <div class="card__body">
+          <div class="card__badges"><span class="level level--2">Trung cấp</span><span class="badge info">Đang khai giảng</span></div>
+          <h3 class="card__title"><a href="course-detail.html?id=toeic-650">TOEIC 650+ cấp tốc</a></h3>
+          <p class="card__desc">Chiến lược làm bài Listening – Reading, tăng điểm nhanh trong 30 buổi.</p>
+          <ul class="meta"><li>30 buổi</li><li>60 giờ học</li></ul>
+        </div>
+        <div class="card__foot">
+          <div class="price"><small>Học phí</small><strong>3.800.000đ</strong></div>
+          <div class="actions"><button class="btn btn--ghost" data-quick>Xem nhanh</button><a class="btn btn--gold" href="course-detail.html?id=toeic-650#dang-ky">Đăng ký</a></div>
+        </div>
+      </article>
+      <article class="card" data-group="kids" data-level="Cơ bản" data-status="info" data-price="4200000" data-name="cambridge starters (trẻ em)"
+        data-id="cambridge-starters" data-code="KH-KIDS" data-title="Cambridge Starters (trẻ em)" data-desc="Học qua trò chơi và hoạt động nhóm, chuẩn bị chứng chỉ Cambridge Starters." data-sessions="36" data-hours="72" data-fee="4.200.000đ" data-entry="Trẻ 6 – 9 tuổi" data-max="14" data-status-label="Đang khai giảng">
+        <a class="thumb thumb--kids" href="course-detail.html?id=cambridge-starters" tabindex="-1" aria-hidden="true">
+          <span class="thumb__glyph">ABC</span><span class="tag">Trẻ em</span>
+        </a>
+        <div class="card__body">
+          <div class="card__badges"><span class="level level--1">Cơ bản</span><span class="badge info">Đang khai giảng</span></div>
+          <h3 class="card__title"><a href="course-detail.html?id=cambridge-starters">Cambridge Starters (trẻ em)</a></h3>
+          <p class="card__desc">Học qua trò chơi và hoạt động nhóm, chuẩn bị chứng chỉ Cambridge Starters.</p>
+          <ul class="meta"><li>36 buổi</li><li>72 giờ học</li></ul>
+        </div>
+        <div class="card__foot">
+          <div class="price"><small>Học phí</small><strong>4.200.000đ</strong></div>
+          <div class="actions"><button class="btn btn--ghost" data-quick>Xem nhanh</button><a class="btn btn--gold" href="course-detail.html?id=cambridge-starters#dang-ky">Đăng ký</a></div>
+        </div>
+      </article>
+      <article class="card card--paused" data-group="work" data-level="Cơ bản" data-status="bad" data-price="3500000" data-name="tiếng anh giao tiếp cơ bản"
+        data-id="giao-tiep-co-ban" data-code="KH-COMM01" data-title="Tiếng Anh giao tiếp cơ bản" data-desc="Rèn phản xạ nghe – nói trong các tình huống hằng ngày và công việc." data-sessions="24" data-hours="48" data-fee="3.500.000đ" data-entry="Không yêu cầu" data-max="18" data-status-label="Tạm dừng">
+        <a class="thumb thumb--work" href="course-detail.html?id=giao-tiep-co-ban" tabindex="-1" aria-hidden="true">
+          <span class="thumb__glyph">Talk</span><span class="tag">Giao tiếp &amp; công việc</span>
+        </a>
+        <div class="card__body">
+          <div class="card__badges"><span class="level level--1">Cơ bản</span><span class="badge bad">Tạm dừng</span></div>
+          <h3 class="card__title"><a href="course-detail.html?id=giao-tiep-co-ban">Tiếng Anh giao tiếp cơ bản</a></h3>
+          <p class="card__desc">Rèn phản xạ nghe – nói trong các tình huống hằng ngày và công việc.</p>
+          <ul class="meta"><li>24 buổi</li><li>48 giờ học</li></ul>
+        </div>
+        <div class="card__foot">
+          <div class="price"><small>Học phí</small><strong>3.500.000đ</strong></div>
+          <div class="actions"><button class="btn btn--ghost" data-quick>Xem nhanh</button><span class="btn btn--off">Tạm ngưng</span></div>
+        </div>
+      </article>
+      <article class="card" data-group="work" data-level="Trung cấp" data-status="ok" data-price="6000000" data-name="tiếng anh thương mại"
+        data-id="thuong-mai" data-code="KH-BIZ" data-title="Tiếng Anh thương mại" data-desc="Email, họp, thuyết trình và đàm phán bằng tiếng Anh trong môi trường công sở." data-sessions="28" data-hours="56" data-fee="6.000.000đ" data-entry="Trình độ B1 trở lên" data-max="16" data-status-label="Đang tuyển sinh">
+        <a class="thumb thumb--work" href="course-detail.html?id=thuong-mai" tabindex="-1" aria-hidden="true">
+          <span class="thumb__glyph">Biz</span><span class="tag">Giao tiếp &amp; công việc</span>
+        </a>
+        <div class="card__body">
+          <div class="card__badges"><span class="level level--2">Trung cấp</span><span class="badge ok">Đang tuyển sinh</span></div>
+          <h3 class="card__title"><a href="course-detail.html?id=thuong-mai">Tiếng Anh thương mại</a></h3>
+          <p class="card__desc">Email, họp, thuyết trình và đàm phán bằng tiếng Anh trong môi trường công sở.</p>
+          <ul class="meta"><li>28 buổi</li><li>56 giờ học</li></ul>
+        </div>
+        <div class="card__foot">
+          <div class="price"><small>Học phí</small><strong>6.000.000đ</strong></div>
+          <div class="actions"><button class="btn btn--ghost" data-quick>Xem nhanh</button><a class="btn btn--gold" href="course-detail.html?id=thuong-mai#dang-ky">Đăng ký</a></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="empty" id="empty" hidden>
+      <h2>Không tìm thấy khóa học phù hợp</h2>
+      <p>Thử đổi từ khóa hoặc bỏ bớt bộ lọc để xem thêm kết quả.</p>
+      <button class="btn btn--primary" id="reset2">Xóa bộ lọc</button>
+    </div>
+  </section>
+
+  <!-- ═══════════════ KÊU GỌI HÀNH ĐỘNG ═══════════════ -->
+  <section class="cta">
+    <div class="wrap cta__in">
+      <div><h2>Chưa biết nên bắt đầu từ đâu?</h2><p>Để lại số điện thoại, giáo vụ sẽ gọi kiểm tra trình độ đầu vào và tư vấn lộ trình riêng cho bạn.</p></div>
+      <button class="btn btn--gold" data-modal="m-consult">Nhận tư vấn miễn phí</button>
+    </div>
+  </section>
+</main>
+
+<!-- ═══════════════ FOOTER (dùng chung) ═══════════════ -->
+<footer class="site-footer">
+  <div class="wrap foot__in">
+    <div><b>English Center</b><p>120 Lê Lợi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh<br>Hotline: 028 3822 1234 · lienhe@englishcenter.edu.vn</p></div>
+    <ul>
+      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="courses.html">Khóa học</a></li>
+      <li><a href="course-detail.html#dang-ky">Đăng ký học thử</a></li>
+      <li><a href="admin-courses.html">Khu vực quản trị</a></li>
+    </ul>
+  </div>
+  <div class="wrap foot__copy">© 2026 English Center. Giao diện mô phỏng: dữ liệu viết cứng, chưa kết nối PHP/MySQL.</div>
+</footer>
+
+<!-- ═══════════════ HỘP THOẠI ═══════════════ -->
+
+<!-- Xem nhanh khóa học (nội dung được điền bởi courses.js) -->
+<div class="overlay" id="m-quick">
+  <div class="modal">
+    <div class="modal-head"><h3 id="q-title">Chi tiết khóa học</h3><button class="modal-close" data-close aria-label="Đóng">&times;</button></div>
+    <div class="modal-body">
+      <p id="q-desc" class="q-desc"></p>
+      <dl class="detail">
+        <dt>Mã khóa học</dt><dd><span class="code" id="q-code"></span></dd>
+        <dt>Trình độ đầu vào</dt><dd id="q-entry"></dd>
+        <dt>Thời lượng</dt><dd id="q-time"></dd>
+        <dt>Học phí</dt><dd id="q-fee"></dd>
+        <dt>Sĩ số tối đa mỗi lớp</dt><dd id="q-max"></dd>
+        <dt>Trạng thái</dt><dd id="q-status"></dd>
+      </dl>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close>Đóng</button>
+      <a class="btn btn--ghost" id="q-detail" href="course-detail.html">Xem trang chi tiết</a>
+      <a class="btn btn--gold" id="q-reg" href="course-detail.html#dang-ky">Đăng ký ngay</a>
+    </div>
+  </div>
+</div>
+
+<!-- Nhận tư vấn -->
+<div class="overlay" id="m-consult">
+  <div class="modal narrow">
+    <div class="modal-head"><h3>Nhận tư vấn miễn phí</h3><button class="modal-close" data-close aria-label="Đóng">&times;</button></div>
+    <div class="modal-body">
+      <div class="field"><label for="c-name">Họ tên <span class="req">*</span></label><input type="text" id="c-name" placeholder="Nguyễn Văn B"></div>
+      <div class="field"><label for="c-phone">Số điện thoại <span class="req">*</span></label><input type="tel" id="c-phone" placeholder="09xx xxx xxx"></div>
+      <div class="field"><label for="c-goal">Mục tiêu học</label>
+        <select id="c-goal"><option>Luyện thi IELTS</option><option>Luyện thi TOEIC</option><option>Cho con em học tiếng Anh</option><option>Giao tiếp / đi làm</option></select></div>
+      <p class="note">Giáo vụ sẽ liên hệ trong giờ hành chính, thường trong vòng 24 giờ.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close>Hủy</button>
+      <button class="btn btn--gold" id="c-send">Gửi yêu cầu</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="courses.js"></script>
+</body>
+</html>
