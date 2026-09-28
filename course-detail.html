@@ -1,1664 +1,404 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Global English & Ngoại ngữ Quốc tế — Chi tiết khóa học và Đăng ký</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <title>Chi tiết khóa học - English Center</title>
 
-    <style>
-
-
-        :root{
-            --pri:#0f766e;
-            --dark:#0b2e33;
-            --acc:#e8a33d;
-            --bg:#f3f6f6;
-            --bd:#dbe4e4;
-            --ok:#15803d;
-            --warn:#b45309;
-            --dan:#b91c1c
-        }
-
-        *{
-            box-sizing:border-box
-        }
-
-        body{
-            margin:0;
-            font:15px/1.5 "Be Vietnam Pro","Segoe UI",Arial,sans-serif;
-            background:var(--bg);
-            color:#1f2f30
-        }
-
-        a{
-            color:inherit;
-            text-decoration:none
-        }
-
-        :focus-visible{
-            outline:2px solid var(--acc);
-            outline-offset:2px
-        }
-
-
-        
-        .layout{
-            display:flex;
-            min-height:100vh
-        }
-
-
-       
-        .sidebar{
-            width:260px;
-            flex-shrink:0;
-            background:var(--dark);
-            color:#c5d8d8;
-            padding:16px 0;
-            position:sticky;
-            top:0;
-            height:100vh;
-            overflow-y:auto
-        }
-
-        .brand{
-            display:block;
-            padding:0 20px 16px;
-            margin-bottom:8px;
-            font-weight:700;
-            color:#fff;
-            border-bottom:1px solid #1c4a50
-        }
-
-        .menu-link,
-        .menu-group summary{
-            display:block;
-            padding:10px 20px;
-            font-weight:600;
-            cursor:pointer
-        }
-
-        .menu-group ul{
-            list-style:none;
-            margin:0;
-            padding:0
-        }
-
-        .menu-group li a{
-            display:block;
-            padding:7px 20px 7px 46px;
-            font-size:14px
-        }
-
-        .menu-link:hover,
-        .menu-group summary:hover,
-        .menu-group li a:hover{
-            background:#12454b
-        }
-
-        .menu-link.active,
-        .menu-group li a.active{
-            background:var(--pri);
-            color:#fff;
-            box-shadow:inset 3px 0 var(--acc)
-        }
-
-
-        
-        .content{
-            flex:1;
-            display:flex;
-            flex-direction:column;
-            min-width:0
-        }
-
-
-        .topbar{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:12px 24px;
-            background:#fff;
-            border-bottom:1px solid var(--bd)
-        }
-
-        .breadcrumb a{
-            color:var(--pri)
-        }
-
-
-        
-        .main{
-            flex:1;
-            padding:24px
-        }
-
-        .main h1{
-            margin:0 0 20px;
-            font-size:22px
-        }
-
-
-       
-        .card{
-            background:#fff;
-            border:1px solid var(--bd);
-            border-radius:8px;
-            padding:20px;
-            margin-bottom:20px
-        }
-
-        .card h2{
-            margin:0 0 12px;
-            font-size:17px
-        }
-
-        .card h3{
-            margin:0 0 12px;
-            font-size:17px
-        }
-
-
-
-        .course-header{
-            background:var(--dark);
-            color:#fff;
-            border-radius:8px;
-            padding:28px;
-            margin-bottom:20px;
-            border-left:5px solid var(--acc)
-        }
-
-        .course-header .course-tag{
-            display:inline-block;
-            background:var(--pri);
-            color:#fff;
-            padding:4px 10px;
-            border-radius:12px;
-            font-size:12px;
-            margin-bottom:10px
-        }
-
-        .course-header h1{
-            margin:0 0 10px;
-            font-size:28px
-        }
-
-        .course-header p{
-            margin:0;
-            color:#c5d8d8;
-            max-width:850px;
-            line-height:1.7
-        }
-
-
-      
-        .course-info{
-            display:grid;
-            grid-template-columns:
-                repeat(auto-fit,minmax(180px,1fr));
-            gap:14px;
-            margin-bottom:20px
-        }
-
-        .info-box{
-            background:#fff;
-            border:1px solid var(--bd);
-            border-left:4px solid var(--acc);
-            border-radius:8px;
-            padding:16px
-        }
-
-        .info-box span{
-            display:block;
-            color:#5b7172;
-            font-size:13px;
-            margin-bottom:5px
-        }
-
-        .info-box strong{
-            color:var(--pri);
-            font-size:18px
-        }
-
-
-
-        .grid-2{
-            display:grid;
-            grid-template-columns:
-                minmax(0,2fr)
-                minmax(300px,1fr);
-            gap:20px
-        }
-
-
-        .goal-list{
-            list-style:none;
-            padding:0;
-            margin:0
-        }
-
-        .goal-list li{
-            padding:10px 12px;
-            margin-bottom:8px;
-            background:#eef5f5;
-            border-left:3px solid var(--pri);
-            border-radius:5px
-        }
-
-        .goal-list li::before{
-            content:"✓";
-            color:var(--ok);
-            font-weight:bold;
-            margin-right:8px
-        }
-
-
-        
-        .lesson{
-            border:1px solid var(--bd);
-            border-radius:7px;
-            padding:14px;
-            margin-bottom:10px;
-            background:#fff
-        }
-
-        .lesson:last-child{
-            margin-bottom:0
-        }
-
-        .lesson-title{
-            font-weight:700;
-            color:var(--pri);
-            margin-bottom:5px
-        }
-
-        .lesson p{
-            margin:0;
-            color:#5b7172
-        }
-
-
-        
-        .teacher{
-            display:flex;
-            align-items:center;
-            gap:16px
-        }
-
-        .teacher-avatar{
-            width:70px;
-            height:70px;
-            flex-shrink:0;
-            border-radius:50%;
-            background:#d9eeee;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:32px;
-            border:2px solid var(--acc)
-        }
-
-        .teacher-info h3{
-            margin:0 0 4px;
-            color:var(--dark)
-        }
-
-        .teacher-info p{
-            margin:2px 0;
-            color:#5b7172
-        }
-
-
-       
-        .register-card{
-            position:sticky;
-            top:20px
-        }
-
-        .register-price{
-            font-size:27px;
-            font-weight:700;
-            color:var(--pri);
-            margin-bottom:15px
-        }
-
-        .register-summary{
-            background:#eef5f5;
-            border-radius:6px;
-            padding:12px;
-            margin-bottom:18px
-        }
-
-        .register-summary p{
-            margin:5px 0
-        }
-
-        .register-summary strong{
-            color:var(--dark)
-        }
-
-
-        
-        .field{
-            display:flex;
-            flex-direction:column;
-            gap:6px;
-            margin-bottom:14px
-        }
-
-        .field label{
-            font-weight:600
-        }
-
-        input,
-        select,
-        textarea{
-            width:100%;
-            padding:8px 10px;
-            border:1px solid #b8c9c9;
-            border-radius:6px;
-            font:inherit;
-            background:#fff
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus{
-            border-color:var(--pri);
-            outline:none;
-            box-shadow:0 0 0 2px rgba(15,118,110,.1)
-        }
-
-
-
-        .btn{
-            display:inline-block;
-            padding:8px 14px;
-            border:1px solid #b8c9c9;
-            border-radius:6px;
-            background:#fff;
-            font:inherit;
-            cursor:pointer
-        }
-
-        .btn:hover{
-            background:#eef5f5
-        }
-
-        .btn-primary{
-            background:var(--pri);
-            border-color:var(--pri);
-            color:#fff;
-            width:100%;
-            padding:11px 14px;
-            font-weight:600
-        }
-
-        .btn-primary:hover{
-            background:#0d5f59
-        }
-
-        .btn-back{
-            display:inline-block;
-            color:var(--pri);
-            margin-bottom:15px;
-            font-weight:600
-        }
-
-        .btn-back:hover{
-            text-decoration:underline
-        }
-
-
-        
-        .success-message{
-            display:none;
-            margin-top:14px;
-            padding:12px;
-            border-radius:6px;
-            background:#dcfce7;
-            color:var(--ok);
-            border:1px solid #bbf7d0
-        }
-
-
-       
-
-        .footer{
-            padding:14px 24px;
-            font-size:13px;
-            color:#5b7172;
-            background:#fff;
-            border-top:1px solid var(--bd)
-        }
-
-
-       
-
-        @media(max-width:900px){
-
-            .grid-2{
-                grid-template-columns:1fr
-            }
-
-            .register-card{
-                position:static
-            }
-
-        }
-
-
-        @media(max-width:768px){
-
-            .layout{
-                flex-direction:column
-            }
-
-            .sidebar{
-                width:100%;
-                position:static;
-                height:auto
-            }
-
-            .main,
-            .topbar{
-                padding:16px
-            }
-
-            .course-header h1{
-                font-size:23px
-            }
-
-            .course-info{
-                grid-template-columns:1fr 1fr
-            }
-
-        }
-
-
-        @media(max-width:500px){
-
-            .course-info{
-                grid-template-columns:1fr
-            }
-
-            .teacher{
-                align-items:flex-start
-            }
-
-        }
-
-    </style>
 </head>
-
-
 <body>
-
-
-<div class="layout">
-
-
-   
-    <aside class="sidebar">
-
-        <a href="index.html" class="brand">
-            English Center
-        </a>
-
-
-        <a href="index.html" class="menu-link">
-            🏠 Trang chủ
-        </a>
-
-
-        <a href="courses.html" class="menu-link active">
-            📚 Khóa học
-        </a>
-
-
-        <details class="menu-group" open>
-
-            <summary>
-                📖 Quản lý khóa học
-            </summary>
-
-            <ul>
-
-                <li>
-                    <a href="courses.html">
-                        Danh sách khóa học
-                    </a>
-                </li>
-
-                <li>
-                    <a href="course-detail.html?course=a1"
-                       class="active">
-                        Chi tiết khóa học
-                    </a>
-                </li>
-
-            </ul>
-
-        </details>
-
-
-        <a href="admin-courses.html" class="menu-link">
-            ⚙️ Quản lý khóa học
-        </a>
-
-
-        <a href="admin-students.html" class="menu-link">
-            👨‍🎓 Quản lý học viên
-        </a>
-
-    </aside>
-
-
-
-    
-    <div class="content">
-
-
-        <!-- TOPBAR -->
-
-        <div class="topbar">
-
-            <div class="breadcrumb">
-
-                <a href="courses.html">
-                    Khóa học
-                </a>
-
-                &nbsp;/&nbsp;
-
-                <span>
-                    Chi tiết khóa học
-                </span>
-
-            </div>
-
-            <div>
-                English Center
-            </div>
-
-        </div>
-
-
-
-        <!-- MAIN -->
-
-        <main class="main">
-
-
-            <!-- BACK -->
-
-            <a href="courses.html" class="btn-back">
-                ← Quay lại danh sách khóa học
-            </a>
-
-
-
-            <!-- COURSE HEADER -->
-
-            <section class="course-header">
-
-                <span class="course-tag" id="courseLanguage">
-                    Tiếng Anh
-                </span>
-
-                <h1 id="courseTitle">
-                    English Communication A1
-                </h1>
-
-                <p id="courseDescription">
-                    Khóa học dành cho người mới bắt đầu,
-                    giúp xây dựng nền tảng tiếng Anh và
-                    tự tin giao tiếp trong những tình huống cơ bản.
-                </p>
-
-            </section>
-
-
-
-            <!-- COURSE INFORMATION -->
-
-            <div class="course-info">
-
-
-                <div class="info-box">
-
-                    <span>
-                        ⏱ Thời lượng
-                    </span>
-
-                    <strong id="courseDuration">
-                        5 tuần
-                    </strong>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <span>
-                        📊 Trình độ
-                    </span>
-
-                    <strong id="courseLevel">
-                        A1
-                    </strong>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <span>
-                        💰 Học phí
-                    </span>
-
-                    <strong id="coursePrice">
-                        1.500.000 VNĐ
-                    </strong>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <span>
-                        👨‍🏫 Giảng viên
-                    </span>
-
-                    <strong id="courseTeacher">
-                        Nguyễn Minh Anh
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- 2 COLUMNS -->
-
-            <div class="grid-2">
-
-
-                <!-- =================================================
-                     LEFT
-                ================================================== -->
-
-                <div>
-
-
-                    <!-- MỤC TIÊU -->
-
-                    <section class="card">
-
-                        <h2>
-                            🎯 Mục tiêu khóa học
-                        </h2>
-
-                        <ul
-                            class="goal-list"
-                            id="courseGoals">
-                        </ul>
-
-                    </section>
-
-
-
-                    <!-- NỘI DUNG -->
-
-                    <section class="card">
-
-                        <h2>
-                            📚 Nội dung khóa học
-                        </h2>
-
-                        <div id="courseLessons">
-                        </div>
-
-                    </section>
-
-
-
-                    <!-- GIẢNG VIÊN -->
-
-                    <section class="card">
-
-                        <h2>
-                            👨‍🏫 Thông tin giảng viên
-                        </h2>
-
-                        <div class="teacher">
-
-                            <div class="teacher-avatar">
-                                👨‍🏫
-                            </div>
-
-                            <div class="teacher-info">
-
-                                <h3 id="teacherName">
-                                    Nguyễn Minh Anh
-                                </h3>
-
-                                <p id="teacherJob">
-                                    Giảng viên tiếng Anh
-                                </p>
-
-                                <p id="teacherExperience">
-                                    5+ năm kinh nghiệm giảng dạy.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-
-                </div>
-
-
-
-                <!-- =================================================
-                     RIGHT - REGISTER
-                ================================================== -->
-
-                <div>
-
-
-                    <section class="card register-card">
-
-                        <h2>
-                            📝 Đăng ký khóa học
-                        </h2>
-
-
-                        <div
-                            class="register-price"
-                            id="registerPrice">
-                            1.500.000 VNĐ
-                        </div>
-
-
-                        <div class="register-summary">
-
-                            <p>
-                                <strong>Khóa học:</strong><br>
-
-                                <span id="registerCourse">
-                                    English Communication A1
-                                </span>
-                            </p>
-
-
-                            <p>
-                                <strong>Thời lượng:</strong>
-
-                                <span id="registerDuration">
-                                    5 tuần
-                                </span>
-                            </p>
-
-
-                            <p>
-                                <strong>Trình độ:</strong>
-
-                                <span id="registerLevel">
-                                    A1
-                                </span>
-                            </p>
-
-                        </div>
-
-
-
-                        <!-- FORM -->
-
-                        <form id="registerForm">
-
-
-                            <div class="field">
-
-                                <label for="studentName">
-                                    Họ và tên
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="studentName"
-                                    placeholder="Nhập họ và tên"
-                                    required
-                                >
-
-                            </div>
-
-
-
-                            <div class="field">
-
-                                <label for="studentEmail">
-                                    Email
-                                </label>
-
-                                <input
-                                    type="email"
-                                    id="studentEmail"
-                                    placeholder="example@gmail.com"
-                                    required
-                                >
-
-                            </div>
-
-
-
-                            <div class="field">
-
-                                <label for="studentPhone">
-                                    Số điện thoại
-                                </label>
-
-                                <input
-                                    type="tel"
-                                    id="studentPhone"
-                                    placeholder="Nhập số điện thoại"
-                                    required
-                                >
-
-                            </div>
-
-
-
-                            <div class="field">
-
-                                <label for="registerType">
-                                    Hình thức đăng ký
-                                </label>
-
-                                <select id="registerType">
-
-                                    <option value="trial">
-                                        Đăng ký học thử
-                                    </option>
-
-                                    <option value="course">
-                                        Đăng ký khóa học
-                                    </option>
-
-                                </select>
-
-                            </div>
-
-
-
-                            <button
-                                type="submit"
-                                class="btn btn-primary">
-
-                                Đăng ký ngay
-
-                            </button>
-
-
-                        </form>
-
-
-
-                        <!-- SUCCESS -->
-
-                        <div
-                            class="success-message"
-                            id="successMessage">
-
-                        </div>
-
-
-                    </section>
-
-
-                </div>
-
-
-            </div>
-
-
-        </main>
-
-
-
-        <!-- FOOTER -->
-
-        <footer class="footer">
-
-            © 2026 English Center -
-            Language Learning System
-
-        </footer>
-
-
+  <div class="scrim" id="scrim"></div>
+  <div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <b>Global English & Ngoại Ngữ</b>
+    <span>Trung tâm Đào tạo Đa Ngôn ngữ</span>
+  </div>
+
+  <nav class="nav" aria-label="Điều hướng chính">
+    <button class="nav-item" data-page="dashboard"><span class="nav-ico">◆</span> Tổng quan hệ thống</button>
+
+    <button class="nav-item" data-page="public-home">Trang chủ Trung tâm</button>
+    <button class="nav-item" data-page="public-courses">Danh sách Khóa học</button>
+
+    <!-- MENU TIẾNG ANH -->
+    <div class="nav-group open" id="grp-english">
+      <button class="nav-toggle" aria-expanded="true"><span class="nav-ico">🇬🇧</span> Tiếng Anh (IELTS / TOEIC) <span class="caret">▸</span></button>
+      <ul class="nav-sub">
+        <li><a href="#eng-ielts" data-page="eng-ielts">Luyện thi IELTS (7.0+ & Foundation)</a></li>
+        <li><a href="#eng-toeic" data-page="eng-toeic">Luyện thi TOEIC (650+ & 750+)</a></li>
+      </ul>
     </div>
 
+    <!-- MENU TIẾNG HÀN -->
+    <div class="nav-group open" id="grp-korean">
+      <button class="nav-toggle" aria-expanded="true"><span class="nav-ico">🇰🇷</span> Tiếng Hàn (TOPIK) <span class="caret">▸</span></button>
+      <ul class="nav-sub">
+        <li><a href="#topik-12" data-page="topik-12">TOPIK 1 & 2 (Sơ cấp)</a></li>
+        <li><a href="#topik-34" data-page="topik-34">TOPIK 3 & 4 (Trung cấp)</a></li>
+        <li><a href="#topik-56" data-page="topik-56">TOPIK 5 & 6 (Cao cấp)</a></li>
+      </ul>
+    </div>
+
+    <!-- MENU TIẾNG NHẬT -->
+    <div class="nav-group open" id="grp-japanese">
+      <button class="nav-toggle" aria-expanded="true"><span class="nav-ico">🇯🇵</span> Tiếng Nhật (JLPT) <span class="caret">▸</span></button>
+      <ul class="nav-sub">
+        <li><a href="#jlpt-n5n4" data-page="jlpt-n5n4">JLPT N5 & N4 (Sơ cấp)</a></li>
+        <li><a href="#jlpt-n3" data-page="jlpt-n3">JLPT N3 (Trung cấp)</a></li>
+        <li><a href="#jlpt-n2n1" data-page="jlpt-n2n1">JLPT N2 & N1 (Cao cấp)</a></li>
+      </ul>
+    </div>
+
+    <!-- TÊN MENU MỚI ĐÃ ĐỔI THEO YÊU CẦU -->
+    <button class="nav-item active" data-page="course-detail">Chi tiết khóa học và Đăng ký</button>
+
+    <div class="nav-title">Hệ thống Quản trị (Admin)</div>
+    <div class="nav-group open" id="grp-course">
+      <button class="nav-toggle" aria-expanded="true"><span class="nav-ico">▤</span> Quản lý khóa học <span class="caret">▸</span></button>
+      <ul class="nav-sub">
+        <li><a href="#courses" data-page="courses">Danh sách khóa học</a></li>
+      </ul>
+    </div>
+    <div class="nav-group open" id="grp-account">
+      <button class="nav-toggle" aria-expanded="true"><span class="nav-ico">◐</span> Quản lý Học viên <span class="caret">▸</span></button>
+      <ul class="nav-sub">
+        <li><a href="#students" data-page="students">Học viên & Đơn tư vấn</a></li>
+        <li><a href="#" data-modal="m-logout">Đăng xuất</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="sidebar-foot">Giao diện đa ngôn ngữ v4.5</div>
+</aside>
+    <div class="content">
+
+      <main class="main">
+<section class="page show" id="course-detail" data-title="Chi tiết khóa học và Đăng ký" data-crumb="Trang chủ / Chi tiết khóa học và Đăng ký">
+      
+      <!-- PHẦN 1: CHI TIẾT LỘ TRÌNH HỌC BÀI BẢN CHO 3 MÔN -->
+      <h2 style="font-size:18px; font-weight:700; margin-bottom:14px; color:var(--ink);">Lộ trình đào tạo chi tiết 3 bộ môn</h2>
+      
+      <div class="roadmap-container">
+        
+        <!-- LỘ TRÌNH TIẾNG ANH -->
+        <div class="roadmap-card">
+          <h3>🇬🇧 Lộ trình Tiếng Anh (IELTS & TOEIC)</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-title">Giai đoạn 1: Foundation (Nền tảng 3.5 - 5.0 IELTS / 350+ TOEIC)</div>
+              <div class="timeline-desc">Chuẩn hóa phát âm IPA, lấy lại gốc 1,500 từ vựng cốt lõi & củng cố ngữ pháp câu ghép. (Thời lượng: 2 - 3 tháng)</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">Giai đoạn 2: Bứt phá kỹ năng (5.5 - 6.5 IELTS / 650+ TOEIC)</div>
+              <div class="timeline-desc">Luyện chiến thuật làm bài Part 1-7 TOEIC, phát triển ý tưởng bài viết Writing Task 1 & 2 IELTS. (Thời lượng: 3 - 4 tháng)</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">Giai đoạn 3: Intensive Thực chiến (7.0+ IELTS / 750+ TOEIC)</div>
+              <div class="timeline-desc">Luyện đề thi thật, sửa bài Speaking & Writing 1:1 trực tiếp với Cựu giám khảo chấm thi. (Thời lượng: 2 tháng)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LỘ TRÌNH TIẾNG HÀN -->
+        <div class="roadmap-card">
+          <h3>🇰🇷 Lộ trình Tiếng Hàn (TOPIK 1 đến TOPIK 6)</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-title">Giai đoạn 1: Sơ cấp (TOPIK 1 & TOPIK 2)</div>
+              <div class="timeline-desc">Học bảng chữ cái Hangul, cách ghép âm, từ vựng đời sống, tự tin giao tiếp du lịch & hỏi đường. (Thời lượng: 3 tháng)</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">Giai đoạn 2: Trung cấp (TOPIK 3 & TOPIK 4)</div>
+              <div class="timeline-desc">Luyện Đọc hiểu - Nghe tin tức, chuyên sâu kỹ năng Viết câu 51-54 TOPIK II phục vụ du học & đi làm. (Thời lượng: 4 tháng)</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">Giai đoạn 3: Cao cấp (TOPIK 5 & TOPIK 6 Master)</div>
+              <div class="timeline-desc">Phân tích văn bản Kinh tế, Chính trị, xã hội, luyện dịch cabin và làm bài luận học thuật. (Thời lượng: 4 - 5 tháng)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LỘ TRÌNH TIẾNG NHẬT -->
+        <div class="roadmap-card">
+          <h3>🇯🇵 Lộ trình Tiếng Nhật (JLPT N5 đến JLPT N1)</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-title">Giai đoạn 1: Nhập môn & Sơ cấp (JLPT N5 & N4)</div>
+              <div class="timeline-desc">Thành thạo bảng Hiragana, Katakana, 300 Kanji và bài 1-50 Giáo trình Minna no Nihongo. (Thời lượng: 4 tháng)</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">Giai đoạn 2: Trung cấp (JLPT N3)</div>
+              <div class="timeline-desc">Tích lũy 650 Kanji, học theo giáo trình Soumatome & Shinkanzen, Kaiwa phản xạ tự nhiên. (Thời lượng: 4 tháng)</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">Giai đoạn 3: Thượng cấp (JLPT N2 & N1 Master)</div>
+              <div class="timeline-desc">Đạt trình độ làm việc IT Comtor, Biên dịch viên, đọc hiểu báo luận & hợp đồng kinh tế Nhật Bản. (Thời lượng: 5 - 6 tháng)</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PHẦN 2: FORM ĐĂNG KÝ HỌC VIÊN CHI TIẾT TỪ NGÀY & GIỜ -->
+      <div class="reg-container">
+        
+        <div class="reg-card">
+          <div class="reg-header">
+            <h2>Form Đăng ký Khóa học & Đặt lịch Test Trình độ</h2>
+            <p>Vui lòng chọn chính xác Ngày & Giờ dự kiến học để Trung tâm xếp lớp phù hợp nhất với thời gian của bạn.</p>
+          </div>
+
+          <div class="card-body" style="padding:28px;">
+            <form onsubmit="event.preventDefault(); showToast('🎉 Đăng ký thành công! Trung tâm đã ghi nhận Ngày & Giờ học của bạn.');">
+              
+              <!-- 1. Chọn Môn Học -->
+              <label style="display:block; font-size:13px; font-weight:700; color:var(--text); margin-bottom:10px;">
+                1. CHỌN MÔN HỌC BẠN MUỐN ĐĂNG KÝ <span style="color:var(--red)">*</span>
+              </label>
+              
+              <div class="subject-selector">
+                <label class="subject-opt selected" onclick="selectSubject(this)">
+                  <input type="radio" name="subject" value="English" checked>
+                  <span class="subject-ico">🇬🇧</span>
+                  <div class="subject-info">
+                    <b>Tiếng Anh</b>
+                    <span>IELTS & TOEIC</span>
+                  </div>
+                </label>
+
+                <label class="subject-opt" onclick="selectSubject(this)">
+                  <input type="radio" name="subject" value="Korean">
+                  <span class="subject-ico">🇰🇷</span>
+                  <div class="subject-info">
+                    <b>Tiếng Hàn</b>
+                    <span>TOPIK 1 - 6</span>
+                  </div>
+                </label>
+
+                <label class="subject-opt" onclick="selectSubject(this)">
+                  <input type="radio" name="subject" value="Japanese">
+                  <span class="subject-ico">🇯🇵</span>
+                  <div class="subject-info">
+                    <b>Tiếng Nhật</b>
+                    <span>JLPT N5 - N1</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Hộp Ưu Đãi -->
+              <div class="benefits-box">
+                <span>🎁</span>
+                <div>
+                  <b>Quyền lợi khi đăng ký:</b> Giảm 10% học phí + Tặng Bộ tài liệu độc quyền + Miễn phí Test đầu vào.
+                </div>
+              </div>
+
+              <!-- 2. Thông Tin Cá Nhân -->
+              <label style="display:block; font-size:13px; font-weight:700; color:var(--text); margin-bottom:12px;">
+                2. THÔNG TIN CÁ NHÂN HỌC VIÊN
+              </label>
+
+              <div class="form-grid-2">
+                <div class="form-field">
+                  <label>Họ và tên học viên <span class="req">*</span></label>
+                  <input type="text" placeholder="Nhập họ và tên..." required>
+                </div>
+
+                <div class="form-field">
+                  <label>Số điện thoại / Zalo liên hệ <span class="req">*</span></label>
+                  <input type="tel" placeholder="Ví dụ: 0901 234 567" required>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-field">
+                  <label>Địa chỉ Email</label>
+                  <input type="email" placeholder="example@gmail.com">
+                </div>
+
+                <div class="form-field">
+                  <label>Chương trình/Lớp cụ thể</label>
+                  <select required>
+                    <option value="">-- Chọn khóa học --</option>
+                    <option>Luyện thi IELTS Intensive 7.0+</option>
+                    <option>Luyện thi IELTS Foundation (3.5 - 5.0)</option>
+                    <option>Luyện thi TOEIC 650+ / 750+</option>
+                    <option>Tiếng Hàn TOPIK 1 & 2 (Sơ cấp)</option>
+                    <option>Tiếng Hàn TOPIK 3 & 4 (Trung cấp)</option>
+                    <option>Tiếng Hàn TOPIK 5 & 6 (Cao cấp)</option>
+                    <option>Tiếng Nhật JLPT N5 & N4 (Sơ cấp)</option>
+                    <option>Tiếng Nhật JLPT N3 (Trung cấp)</option>
+                    <option>Tiếng Nhật JLPT N2 & N1 (Thượng cấp)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 3. CHI TIẾT NGÀY & GIỜ ĐĂNG KÝ HỌC -->
+              <label style="display:block; font-size:13px; font-weight:700; color:var(--text); margin-top:8px; margin-bottom:12px;">
+                3. ĐẶT CHI TIẾT NGÀY & GIỜ DỰ KIẾN HỌC
+              </label>
+
+              <div class="form-grid-3">
+                <div class="form-field">
+                  <label>Ngày bắt đầu dự kiến <span class="req">*</span></label>
+                  <input type="date" required style="cursor:pointer;">
+                </div>
+
+                <div class="form-field">
+                  <label>Thứ trong tuần (Thói quen học)</label>
+                  <select required>
+                    <option>Lịch Thứ 2 - 4 - 6</option>
+                    <option>Lịch Thứ 3 - 5 - 7</option>
+                    <option>Lịch Cuối tuần (Thứ 7 & Chủ Nhật)</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label>Khung giờ học mong muốn <span class="req">*</span></label>
+                  <select required>
+                    <option value="">-- Chọn khung giờ --</option>
+                    <option>Ca Sáng: 08:00 - 10:00</option>
+                    <option>Ca Sáng: 10:00 - 12:00</option>
+                    <option>Ca Chiều: 14:00 - 16:00</option>
+                    <option>Ca Chiều: 16:00 - 18:00</option>
+                    <option>Ca Tối 1: 18:00 - 20:00 (Phổ biến)</option>
+                    <option>Ca Tối 2: 18:30 - 20:30 (Phổ biến)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-field">
+                  <label>Hình thức học lựa chọn</label>
+                  <select>
+                    <option>Học Trực tiếp tại Cơ sở Trung tâm</option>
+                    <option>Học Trực tuyến (Online qua Google Meet)</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label>Cơ sở học tập</label>
+                  <select>
+                    <option>Cơ sở 1: Quận 1, TP. Hồ Chí Minh</option>
+                    <option>Cơ sở 2: Quận 3, TP. Hồ Chí Minh</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label>Ghi chú thêm (Yêu cầu ca học đặc biệt hoặc tư vấn xếp lớp)</label>
+                <textarea rows="3" placeholder="Nhập câu hỏi hoặc ghi chú thời gian rảnh của bạn..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit-large">HOÀN TẤT ĐĂNG KÝ HỌC & GIỮ CHỖ LỚP</button>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+      </main>
+<footer class="foot">
+    © 2026 Global English Center. Đào tạo Tiếng Anh, Tiếng Hàn (TOPIK 1-6) & Tiếng Nhật (JLPT N5-N1).
+  </footer>
+    </div>
+  </div>
+<!-- MODAL POPUP -->
+<div class="overlay" id="m-logout">
+  <div class="modal">
+    <div class="modal-head"><h3>Xác nhận đăng xuất</h3><button class="modal-close" data-close="m-logout">&times;</button></div>
+    <div class="modal-body"><p>Bạn có chắc muốn thoát khỏi hệ thống?</p></div>
+    <div class="modal-foot"><button class="btn" data-close="m-logout">Hủy</button><button class="btn btn-primary" onclick="closeModal('m-logout'); showToast('Đã đăng xuất!');">Đăng xuất</button></div>
+  </div>
 </div>
 
+<div class="toast" id="toast">Thông báo hệ thống</div>
 
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
+<!-- JAVASCRIPT XỬ LÝ SỰ KIỆN -->
 
 <script>
-
-
-    /* =====================================================
-       LẤY ID KHÓA HỌC TRÊN URL
-       
-       Ví dụ:
-       course-detail.html?course=a1
-       course-detail.html?course=a2
-       course-detail.html?course=b1
-       ===================================================== */
-
-    const urlParams =
-        new URLSearchParams(window.location.search);
-
-    const courseId =
-        urlParams.get("course") || "a1";
-
-
-
-    /* =====================================================
-       DỮ LIỆU KHÓA HỌC
-       ===================================================== */
-
-    const courses = {
-
-
-        /* ================= A1 ================= */
-
-        a1: {
-
-            language: "Tiếng Anh",
-
-            title: "English Communication A1",
-
-            description:
-                "Khóa học dành cho người mới bắt đầu, giúp xây dựng nền tảng tiếng Anh và tự tin giao tiếp trong những tình huống cơ bản.",
-
-            duration: "5 tuần",
-
-            level: "A1",
-
-            price: "1.500.000 VNĐ",
-
-            teacher: "Bùi Dương Thành Đạt",
-
-            teacherJob: "Giảng viên tiếng Anh",
-
-            teacherExperience:
-                "5+ năm kinh nghiệm giảng dạy.",
-
-
-            goals: [
-
-                "Nắm được những kiến thức tiếng Anh cơ bản.",
-
-                "Có thể giới thiệu bản thân bằng tiếng Anh.",
-
-                "Giao tiếp trong những tình huống hàng ngày.",
-
-                "Cải thiện phát âm và từ vựng.",
-
-                "Xây dựng nền tảng để học lên trình độ A2."
-
-            ],
-
-
-            lessons: [
-
-                [
-                    "Buổi 1: Greetings & Introduction",
-                    "Học cách chào hỏi và giới thiệu bản thân."
-                ],
-
-                [
-                    "Buổi 2: Family & Friends",
-                    "Từ vựng về gia đình và cách mô tả người."
-                ],
-
-                [
-                    "Buổi 3: Daily Activities",
-                    "Thực hành nói về các hoạt động hàng ngày."
-                ],
-
-                [
-                    "Buổi 4: Food & Drinks",
-                    "Học từ vựng và giao tiếp khi gọi món."
-                ],
-
-                [
-                    "Buổi 5: Review & Speaking",
-                    "Ôn tập và thực hành giao tiếp."
-                ]
-
-            ]
-
-        },
-
-
-        /* ================= A2 ================= */
-
-        a2: {
-
-            language: "Tiếng Anh",
-
-            title: "English Communication A2",
-
-            description:
-                "Phát triển khả năng giao tiếp trong những tình huống hàng ngày.",
-
-            duration: "6 tuần",
-
-            level: "A2",
-
-            price: "1.800.000 VNĐ",
-
-            teacher: "Nguyễn Lê Tường ",
-
-            teacherJob: "Giảng viên tiếng Anh",
-
-            teacherExperience:
-                "5+ năm kinh nghiệm giảng dạy.",
-
-
-            goals: [
-
-                "Mở rộng vốn từ vựng tiếng Anh.",
-
-                "Giao tiếp trong nhiều tình huống hàng ngày.",
-
-                "Cải thiện kỹ năng nghe và nói.",
-
-                "Sử dụng được các cấu trúc câu cơ bản.",
-
-                "Chuẩn bị nền tảng để học lên B1."
-
-            ],
-
-
-            lessons: [
-
-                [
-                    "Buổi 1: Daily Conversation",
-                    "Thực hành các đoạn hội thoại thường gặp."
-                ],
-
-                [
-                    "Buổi 2: Shopping",
-                    "Học cách giao tiếp khi mua sắm."
-                ],
-
-                [
-                    "Buổi 3: Travel",
-                    "Từ vựng và hội thoại trong du lịch."
-                ],
-
-                [
-                    "Buổi 4: Work & Study",
-                    "Giao tiếp về công việc và học tập."
-                ],
-
-                [
-                    "Buổi 5: Listening Practice",
-                    "Luyện nghe các đoạn hội thoại ngắn."
-                ],
-
-                [
-                    "Buổi 6: Review & Speaking",
-                    "Ôn tập và thực hành giao tiếp."
-                ]
-
-            ]
-
-        },
-
-
-        /* ================= B1 ================= */
-
-        b1: {
-
-            language: "Tiếng Anh",
-
-            title: "English Intermediate B1",
-
-            description:
-                "Cải thiện giao tiếp và khả năng sử dụng tiếng Anh trong học tập.",
-
-            duration: "8 tuần",
-
-            level: "B1",
-
-            price: "2.500.000 VNĐ",
-
-            teacher: "Tạ Dương Bảo Anh",
-
-            teacherJob: "Giảng viên tiếng Anh",
-
-            teacherExperience:
-                "7+ năm kinh nghiệm giảng dạy.",
-
-
-            goals: [
-
-                "Giao tiếp tự tin hơn bằng tiếng Anh.",
-
-                "Cải thiện kỹ năng nghe và nói.",
-
-                "Sử dụng tiếng Anh trong học tập.",
-
-                "Mở rộng vốn từ vựng.",
-
-                "Phát triển khả năng trình bày ý kiến."
-
-            ],
-
-
-            lessons: [
-
-                [
-                    "Buổi 1: Communication Skills",
-                    "Phát triển kỹ năng giao tiếp."
-                ],
-
-                [
-                    "Buổi 2: Education",
-                    "Từ vựng và hội thoại về giáo dục."
-                ],
-
-                [
-                    "Buổi 3: Work",
-                    "Giao tiếp trong môi trường công việc."
-                ],
-
-                [
-                    "Buổi 4: Technology",
-                    "Thảo luận về công nghệ."
-                ],
-
-                [
-                    "Buổi 5: Environment",
-                    "Từ vựng và thảo luận về môi trường."
-                ],
-
-                [
-                    "Buổi 6: Presentation",
-                    "Luyện kỹ năng thuyết trình."
-                ],
-
-                [
-                    "Buổi 7: Discussion",
-                    "Thực hành thảo luận và đưa ra ý kiến."
-                ],
-
-                [
-                    "Buổi 8: Final Review",
-                    "Ôn tập và đánh giá cuối khóa."
-                ]
-
-            ]
-
-        },
-
-
-        /* ================= B2 ================= */
-
-        b2: {
-
-            language: "Tiếng Anh",
-
-            title: "English Upper Intermediate B2",
-
-            description:
-                "Nâng cao khả năng sử dụng tiếng Anh trong học tập và công việc.",
-
-            duration: "10 tuần",
-
-            level: "B2",
-
-            price: "3.000.000 VNĐ",
-
-            teacher: "Tạ Dương Bảo Anh ",
-
-            teacherJob: "Giảng viên tiếng Anh",
-
-            teacherExperience:
-                "7+ năm kinh nghiệm giảng dạy.",
-
-
-            goals: [
-
-                "Giao tiếp tiếng Anh ở trình độ nâng cao.",
-
-                "Phát triển kỹ năng thuyết trình.",
-
-                "Sử dụng tiếng Anh trong môi trường công việc.",
-
-                "Cải thiện kỹ năng viết.",
-
-                "Phát triển khả năng tranh luận."
-
-            ],
-
-
-            lessons: [
-
-                [
-                    "Buổi 1: Advanced Communication",
-                    "Phát triển khả năng giao tiếp nâng cao."
-                ],
-
-                [
-                    "Buổi 2: Academic English",
-                    "Sử dụng tiếng Anh trong học tập."
-                ],
-
-                [
-                    "Buổi 3: Business English",
-                    "Tiếng Anh trong môi trường công việc."
-                ],
-
-                [
-                    "Buổi 4: Presentation Skills",
-                    "Luyện kỹ năng thuyết trình."
-                ],
-
-                [
-                    "Buổi 5: Debate",
-                    "Thực hành tranh luận bằng tiếng Anh."
-                ],
-
-                [
-                    "Buổi 6: Writing",
-                    "Phát triển kỹ năng viết."
-                ],
-
-                [
-                    "Buổi 7: Listening",
-                    "Luyện nghe nội dung nâng cao."
-                ],
-
-                [
-                    "Buổi 8: Speaking",
-                    "Thực hành giao tiếp chuyên sâu."
-                ],
-
-                [
-                    "Buổi 9: Project",
-                    "Thực hiện bài tập tổng hợp."
-                ],
-
-                [
-                    "Buổi 10: Final Review",
-                    "Ôn tập và đánh giá cuối khóa."
-                ]
-
-            ]
-
-        },
-
-
-        /* ================= KOREAN ================= */
-
-        korean: {
-
-            language: "Tiếng Hàn",
-
-            title: "Korean Beginner",
-
-            description:
-                "Làm quen với bảng chữ cái Hangul và giao tiếp tiếng Hàn cơ bản.",
-
-            duration: "6 tuần",
-
-            level: "TOPIK 1",
-
-            price: "1.700.000 VNĐ",
-
-            teacher: "Lê Nguyễn Minh Huy",
-
-            teacherJob: "Giảng viên tiếng Hàn",
-
-            teacherExperience:
-                "5+ năm kinh nghiệm giảng dạy tiếng Hàn.",
-
-
-            goals: [
-
-                "Làm quen với bảng chữ cái Hangul.",
-
-                "Đọc và viết những từ tiếng Hàn cơ bản.",
-
-                "Giới thiệu bản thân bằng tiếng Hàn.",
-
-                "Giao tiếp trong những tình huống đơn giản.",
-
-                "Xây dựng nền tảng để học tiếng Hàn nâng cao."
-
-            ],
-
-
-            lessons: [
-
-                [
-                    "Buổi 1: Hangul",
-                    "Làm quen với bảng chữ cái tiếng Hàn."
-                ],
-
-                [
-                    "Buổi 2: Greetings",
-                    "Học cách chào hỏi và giới thiệu."
-                ],
-
-                [
-                    "Buổi 3: Family",
-                    "Từ vựng về gia đình."
-                ],
-
-                [
-                    "Buổi 4: Daily Life",
-                    "Giao tiếp về cuộc sống hàng ngày."
-                ],
-
-                [
-                    "Buổi 5: Food",
-                    "Từ vựng và giao tiếp về món ăn."
-                ],
-
-                [
-                    "Buổi 6: Review",
-                    "Ôn tập và thực hành."
-                ]
-
-            ]
-
-        },
-
-
-        /* ================= JAPANESE ================= */
-
-        japanese: {
-
-            language: "Tiếng Nhật",
-
-            title: "Japanese Beginner",
-
-            description:
-                "Học Hiragana, Katakana và giao tiếp tiếng Nhật cơ bản.",
-
-            duration: "6 tuần",
-
-            level: "N5",
-
-            price: "1.700.000 VNĐ",
-
-            teacher: "Nguyễn Xuân Nghi",
-
-            teacherJob: "Giảng viên tiếng Nhật",
-
-            teacherExperience:
-                "5+ năm kinh nghiệm giảng dạy tiếng Nhật.",
-
-
-            goals: [
-
-                "Làm quen với Hiragana và Katakana.",
-
-                "Đọc được những từ tiếng Nhật cơ bản.",
-
-                "Giới thiệu bản thân bằng tiếng Nhật.",
-
-                "Giao tiếp trong những tình huống đơn giản.",
-
-                "Xây dựng nền tảng để học tiếng Nhật tiếp theo."
-
-            ],
-
-
-            lessons: [
-
-                [
-                    "Buổi 1: Hiragana",
-                    "Làm quen với bảng chữ Hiragana."
-                ],
-
-                [
-                    "Buổi 2: Katakana",
-                    "Học bảng chữ Katakana."
-                ],
-
-                [
-                    "Buổi 3: Greetings",
-                    "Học cách chào hỏi bằng tiếng Nhật."
-                ],
-
-                [
-                    "Buổi 4: Self Introduction",
-                    "Thực hành giới thiệu bản thân."
-                ],
-
-                [
-                    "Buổi 5: Daily Conversation",
-                    "Giao tiếp trong cuộc sống hàng ngày."
-                ],
-
-                [
-                    "Buổi 6: Review",
-                    "Ôn tập và thực hành."
-                ]
-
-            ]
-
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+function openModal(id) { const m = document.getElementById(id); if(m) m.classList.add('open'); }
+function closeModal(id) { const m = document.getElementById(id); if(m) m.classList.remove('open'); }
+
+function selectSubject(elem) {
+  document.querySelectorAll('.subject-opt').forEach(opt => opt.classList.remove('selected'));
+  elem.classList.add('selected');
+  const radio = elem.querySelector('input[type=radio]');
+  if(radio) radio.checked = true;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('[data-page]');
+  const pages = document.querySelectorAll('.page');
+  const crumb = document.getElementById('crumb');
+  const pageTitle = document.getElementById('page-title');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      const pageId = this.getAttribute('data-page');
+      const targetPage = document.getElementById(pageId);
+
+      if (targetPage) {
+        pages.forEach(p => p.classList.remove('show'));
+        targetPage.classList.add('show');
+
+        if(targetPage.dataset.crumb) crumb.innerHTML = '<b>' + targetPage.dataset.crumb + '</b>';
+        if(targetPage.dataset.title) pageTitle.textContent = targetPage.dataset.title;
+
+        document.querySelectorAll('.nav-sub a, .nav-item').forEach(el => el.classList.remove('active'));
+        if(pageId !== 'dashboard') {
+          document.querySelectorAll(`[data-page="${pageId}"]`).forEach(el => el.classList.add('active'));
         }
-
-    };
-
-
-
-    /* =====================================================
-       LẤY KHÓA HỌC
-       ===================================================== */
-
-    const course =
-        courses[courseId] || courses.a1;
-
-
-
-    /* =====================================================
-       HIỂN THỊ THÔNG TIN KHÓA HỌC
-       ===================================================== */
-
-    document.title =
-        course.title + " - English Center";
-
-
-    document.getElementById("courseLanguage")
-        .textContent = course.language;
-
-
-    document.getElementById("courseTitle")
-        .textContent = course.title;
-
-
-    document.getElementById("courseDescription")
-        .textContent = course.description;
-
-
-    document.getElementById("courseDuration")
-        .textContent = course.duration;
-
-
-    document.getElementById("courseLevel")
-        .textContent = course.level;
-
-
-    document.getElementById("coursePrice")
-        .textContent = course.price;
-
-
-    document.getElementById("courseTeacher")
-        .textContent = course.teacher;
-
-
-
-    /* =====================================================
-       HIỂN THỊ THÔNG TIN ĐĂNG KÝ
-       ===================================================== */
-
-    document.getElementById("registerPrice")
-        .textContent = course.price;
-
-
-    document.getElementById("registerCourse")
-        .textContent = course.title;
-
-
-    document.getElementById("registerDuration")
-        .textContent = course.duration;
-
-
-    document.getElementById("registerLevel")
-        .textContent = course.level;
-
-
-
-    /* =====================================================
-       HIỂN THỊ MỤC TIÊU
-       ===================================================== */
-
-    const goals =
-        document.getElementById("courseGoals");
-
-    goals.innerHTML = "";
-
-
-    course.goals.forEach(function(goal){
-
-        const li =
-            document.createElement("li");
-
-        li.textContent = goal;
-
-        goals.appendChild(li);
-
+      }
     });
+  });
 
-
-
-    /* =====================================================
-       HIỂN THỊ NỘI DUNG BUỔI HỌC
-       ===================================================== */
-
-    const lessons =
-        document.getElementById("courseLessons");
-
-    lessons.innerHTML = "";
-
-
-    course.lessons.forEach(function(item){
-
-        const lesson =
-            document.createElement("div");
-
-        lesson.className = "lesson";
-
-
-        lesson.innerHTML = `
-
-            <div class="lesson-title">
-                ${item[0]}
-            </div>
-
-            <p>
-                ${item[1]}
-            </p>
-
-        `;
-
-
-        lessons.appendChild(lesson);
-
+  document.querySelectorAll('.nav-toggle').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const group = this.parentElement;
+      group.classList.toggle('open');
+      this.setAttribute('aria-expanded', group.classList.contains('open'));
     });
+  });
 
+  document.querySelectorAll('[data-modal]').forEach(btn => {
+    btn.addEventListener('click', function() { openModal(this.getAttribute('data-modal')); });
+  });
 
+  document.querySelectorAll('[data-close]').forEach(btn => {
+    btn.addEventListener('click', function() { closeModal(this.getAttribute('data-close')); });
+  });
 
-    /* =====================================================
-       THÔNG TIN GIẢNG VIÊN
-       ===================================================== */
+  const burger = document.getElementById('burger');
+  const sidebar = document.getElementById('sidebar');
+  const scrim = document.getElementById('scrim');
 
-    document.getElementById("teacherName")
-        .textContent = course.teacher;
-
-
-    document.getElementById("teacherJob")
-        .textContent = course.teacherJob;
-
-
-    document.getElementById("teacherExperience")
-        .textContent = course.teacherExperience;
-
-
-
-    /* =====================================================
-       FORM ĐĂNG KÝ
-       ===================================================== */
-
-    const form =
-        document.getElementById("registerForm");
-
-
-    form.addEventListener("submit", function(event){
-
-        event.preventDefault();
-
-
-        const name =
-            document.getElementById("studentName").value;
-
-
-        const success =
-            document.getElementById("successMessage");
-
-
-        success.style.display = "block";
-
-
-        success.innerHTML = `
-
-            <strong>✓ Đăng ký thành công!</strong><br>
-
-            Cảm ơn <strong>${name}</strong> đã đăng ký
-            khóa <strong>${course.title}</strong>.
-
-            <br>
-
-            Trung tâm sẽ liên hệ với bạn trong thời gian
-            sớm nhất.
-
-        `;
-
-
-        form.reset();
-
+  if(burger) {
+    burger.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      scrim.classList.toggle('open');
     });
-
-
+  }
+  if(scrim) {
+    scrim.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      scrim.classList.remove('open');
+    });
+  }
+});
 </script>
-
-
 </body>
 </html>
